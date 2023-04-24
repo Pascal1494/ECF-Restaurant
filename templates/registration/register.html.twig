@@ -1,21 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Register
+{% endblock %}
 
 {% block body %}
-    {% for flash_error in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-    {% endfor %}
+	<main class="main-bg text-whitesmoke">
+		<div class="login-container text-c animated ">
+			<div class="border-radius">
+				<h1 class="logo-badge text-whitesmoke">
+					<span class="fa fa-user-circle"></span>
+				</h1>
 
-    <h1>Register</h1>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
+				{% for flash_error in app.flashes('verify_email_error') %}
+					<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+				{% endfor %}
+
+				<h1 class="text-whitesmoke">Créer un compte</h1>
+
+				{{ form_start(registrationForm) }}
+				<div class="login-donnee ">
+					{{ form_row(registrationForm.email, {label: 'E-mail'}) }}
+				</div>
+				<div class="login-donnee">
+					{{ form_row(registrationForm.plainPassword, {
+            label: 'Mot de passe'
         }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+				</div>
+				{{ form_row(registrationForm.agreeTerms, {label: 'Vous devez accepter les conditions !'}) }}
+				<div class="read-condition">
+					<a href="#">Lire les conditions
+					</a>
+				</div>
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
-{% endblock %}
+				<button type="submit" class="form-button button-l margin-t btn btn-lg btn-primary text-whitesmoke">Créer un compte</button>
+				{{ form_end(registrationForm) }}
+				<p class="text-whitesmoke text-center">
+					<small>Vous avez déjà un compte ?</small>
+				</p>
+				<a class="text-darkyellow" href="{{ path('app_login') }}">
+					<small>S'identifier</small>
+				</a>
+			</div>
+		</main>
+	{% endblock %}
