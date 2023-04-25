@@ -45,15 +45,15 @@ background: center/cover;}
 
 .btn-purple {
   margin-top: 10px;
-  background-color: #8e44ad;
-  border-color: #8e44ad;
-  color: #fff;
+  background-color: #8e44ad !important;
+  border-color: #8e44ad !important;
+  color: #c4acac !important;
 }
 
 .btn-purple:hover {
-  background-color: #5b6377;
-  border-color: #5b6377;
-  color: #ffffff;
+  background-color: #5b6377 !important;
+  border-color: #5b6377 !important;
+  color: #c4acac!important;
 }
 
 .card {
@@ -68,7 +68,8 @@ background: center/cover;}
   width: 90vw;
   min-height: 30vh;
   max-width: 300px; 
-  /* border: 5px solid pink; */
+  font-size: 2.6rem;
+  font-weight: 300;
   margin: 10px;
 
   /* flex-basis: calc(33.33% - 1em); */
@@ -137,6 +138,8 @@ background: center/cover;}
   position: absolute;
   inset: 20px;
   top: auto;
+  font-size: 1.8rem;
+  font-weight: 500;
 }
 h2 {
   font-size: 30px;
@@ -247,10 +250,27 @@ h1 {
 
   }
   main {
-    
+    padding-top: -300px;
+    min-height: 800px;
     flex-direction: row;
   }
+
   .badge {
-  display: flex;
-}
+    display: flex;
+  }
+
+  .container-title {
+    font-size: 5rem;
+    margin-top: 7vw;
+    padding: 10px;
+    background-color: #3333334e;
+    border-radius: 10px;
+  }
+  
+  .container-slogan {
+    width: 85%;
+    padding: 50px 10px;
+    font-size: 1.6rem;
+    background-color: #33333330;
+  }
 }
