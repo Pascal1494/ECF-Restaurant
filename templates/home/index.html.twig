@@ -17,58 +17,27 @@
 
 		<div class="center-title">
 			<h1 class="container-title">Le quai Anthique</h1>
-			{# {% for dishe in dishesOne %} #}
-			<h1
-				id='1'>
-				{# {{ dishe.name }} #}
-				Plat
-			</h1>
-			{# {% endfor %} #}
+
 			<p class="container-slogan">Nous sommes heureux de vous accueillir pour un moment de plaisir et de détente</p>
 		</div>
 		<main id="main">
-			<div
-				class="card">
-				{# <span class="badge">Map</span> #}
-				<img src="{{asset('assets/images/dishes/couscous.jpg')}}" alt="Fjordur - Ark Survival Evolved"/>
-				<div class="text">
-					<h2>Fjordur</h2>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos excepturi nostrum necessitatibus doloremque? Quasi non molestias odio. Quasi non molestias odio.</p>
-					<div class="button-container">
-						<button class="btn btn-sm btn-purple">
-							<a href="http://">Détail du menu</a>
-						</button>
+			{% for menu in menus %}
+				<div class="card">
+					<span class="badge">{{menu.price}}
+						€</span>
+					<img src="{{ asset('assets/images/menu/' ~ menu.image) }}" alt="{{ menu.name }}">
+					<div class="text">
+						<h2>{{ menu.name }}</h2>
+						<p>{{ menu.description }}</p>
+						<div class="button-container">
+							<button class="btn btn-sm btn-purple">
+								<a href="#">Détail du menu</a>
+							</button>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div
-				class="card">
-				{# <span class="badge">Map</span> #}
-				<img src="{{asset('assets/images/dishes/poulet.jpg')}}" alt="Abberation - Ark Survival Evolved"/>
-				<div class="text">
-					<h2>Abberation</h2>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos excepturi nostrum necessitatibus doloremque? Quasi non molestias odio. Quasi non molestias odio.</p>
-					<div class="button-container">
-						<button class="btn btn-sm btn-purple">
-							<a href="http://">Détail du menu</a>
-						</button>
-					</div>
-				</div>
-			</div>
-			<div
-				class="card">
-				{# <span class="badge">Map</span> #}
-				<img src="{{asset('assets/images/dishes/coqs.jpg')}}" alt="Scorched Earth - Ark Survival Evolved"/>
-				<div class="text">
-					<h2>Scorched Earth</h2>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos excepturi nostrum necessitatibus doloremque? Quasi non molestias odio. Quasi non molestias odio.</p>
-					<div class="button-container">
-						<button class="btn btn-sm btn-purple">
-							<a href="http://">Détail du menu</a>
-						</button>
-					</div>
-				</div>
-			</div>
+			{% endfor %}
+
 
 		</main>
 	</section>

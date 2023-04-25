@@ -2,9 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\DisheRepository;
+use DateTimeImmutable;
+use Cocur\Slugify\Slugify;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\DisheRepository;
 
 #[ORM\Entity(repositoryClass: DisheRepository::class)]
 class Dishe
@@ -38,6 +40,11 @@ class Dishe
 
     #[ORM\ManyToOne(inversedBy: 'dishe')]
     private ?Menu $menu = null;
+
+    public function __construct()
+    {
+        $this->createdAt = new DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
@@ -82,7 +89,7 @@ class Dishe
 
     public function getSlug(): ?string
     {
-        return $this->slug;
+        return strtolower((new Slugify())->slugify($this->name));
     }
 
     public function setSlug(string $slug): self
