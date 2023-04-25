@@ -1,0 +1,43 @@
+{# templates/admin/my-custom-page.html.twig #}
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block head_stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('assets/css/easyadmin.css') }}"/>
+{% endblock %}
+
+
+{% block content_title %}
+	<div class="text-center">
+		Console D'administration
+	</div>
+{% endblock %}
+{% block page_actions %}
+	<a class="btn btn-primary" href="...">Some Action</a>
+{% endblock %}
+
+{% block main %}
+	<h1>Bienvenue
+		{% if app.user == "" %}
+			dans la console
+		{% else %}
+			dans votre environnement d'administration:
+			{{app.user}}</h1>
+	{% endif %}
+	{# <table class="datagrid">
+																			        <thead>
+																			            <tr>
+																			                <td>Some Column</td>
+																			                <td>Another Column</td>
+																			            </tr>
+																			        </thead>
+																			        <tbody>
+																			            {% for data in my_own_data %}
+																			                <tr>
+																			                    <td>{{ data.someColumn }}</td>
+																			                    <td>{{ data.anotherColumn }}</td>
+																			                </tr>
+																			            {% endfor %}
+																			        </tbody>
+																			    </table> #}
+{% endblock %}
