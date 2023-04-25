@@ -1,0 +1,72 @@
+/* page Accueil */
+.sidebar {
+  background-color: #1d1c1cab;
+}
+
+.menu-icon {
+  color: #ffff0072 !important;
+
+}
+
+.fa-shop::before {
+color: #ffff00 !important;
+}
+
+.logo-custom{
+  text-transform: uppercase;
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.3rem;
+  border: 1px solid #ffff00;
+  border-radius: 5px;
+
+  padding: 10px;
+}
+
+.menu-header-contents {
+  color: #ffff00 !important;
+}
+
+.menu-item {
+  width: 100% !important;
+  display: flex;
+  justify-content: self-end;
+  align-items: center;
+}
+
+.menu-item-label:hover {
+color: #ffff0072;
+}
+.menu-item-label {
+  width: 55%;
+  text-align: center;
+  
+}
+
+.menu-item-contents {
+  display: flex;
+  justify-content: space-around;
+  
+  /* border: 1px solid red; */
+  min-width: 100%;
+}
+
+.menu-item-badge {
+  color: rgb(229, 223, 223) !important; 
+  padding: 3px 8px;
+  font-weight: bold;
+}
+
+.menu-item-badge:hover{
+  background-color: #ffff00 !important;
+  color: black !important; 
+  
+}
+.dropdown-settings-button 
+{
+  display: none;
+}
+
+.btn {
+  background-color: #3f3f05 !important;
+}
