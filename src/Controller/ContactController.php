@@ -16,11 +16,11 @@ class ContactController extends AbstractController
     {
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
-        
+
         if ($form->isSubmitted() && $form->isValid()) {
             $contactFormData = $form->getData();
             $mailer->sendEmail($contactFormData);
-            
+
 
             return $this->redirectToRoute('app_contact_succes');
         }
@@ -28,5 +28,15 @@ class ContactController extends AbstractController
         return $this->render('contact/index.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+
+    #[Route('/contact/succes', name: 'app_contact_succes')]
+    public function Contact_succes(): Response
+
+    {
+
+
+        return $this->render('contact/contact_succes.html.twig');
     }
 }
