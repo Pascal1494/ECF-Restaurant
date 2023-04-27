@@ -2,11 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
+use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\UserRepository;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
@@ -47,6 +48,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $slug = null;
+
+
 
     public function getId(): ?int
     {
@@ -199,7 +202,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getSlug(): ?string
     {
-        return $this->slug;
+        $slugify = new Slugify();
+
+        return $slugify->slugify($this->getPseudo());
     }
 
     public function setSlug(?string $slug): self

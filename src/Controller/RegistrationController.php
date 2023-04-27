@@ -3,26 +3,30 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Form\RegistrationFormType;
 use App\Security\EmailVerifier;
+use App\Form\RegistrationFormType;
+use Symfony\Component\Mime\Address;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Mime\Address;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
 class RegistrationController extends AbstractController
 {
     private EmailVerifier $emailVerifier;
+    private SluggerInterface $slugger;
 
-    public function __construct(EmailVerifier $emailVerifier)
+
+    public function __construct(EmailVerifier $emailVerifier, SluggerInterface $slugger)
     {
         $this->emailVerifier = $emailVerifier;
+        $this->slugger = $slugger;
     }
 
     #[Route('/register', name: 'app_register')]
@@ -41,11 +45,18 @@ class RegistrationController extends AbstractController
                 )
             );
 
+            // create slug from user pseudo
+            $user->setSlug($this->slugger->slug($user->getPseudo()));
+            $userSlugLowerCase = strtolower($user);
+            $user->setSlug($userSlugLowerCase);
+
             $entityManager->persist($user);
             $entityManager->flush();
 
             // generate a signed url and email it to the user
-            $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
+            $this->emailVerifier->sendEmailConfirmation(
+                'app_verify_email',
+                $user,
                 (new TemplatedEmail())
                     ->from(new Address('lqa-resto@gmail.com', 'Arnaud MICHAND Le quai Anthique'))
                     ->to($user->getEmail())

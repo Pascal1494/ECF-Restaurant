@@ -34,7 +34,7 @@
 						</a>
 						<ul class="dropdown-menu">
 							<li>
-								<a class="dropdown-item" href="#">Mon compte</a>
+								<a class="dropdown-item" href="{{path('app_user_edit', {'slug': app.user.slug})}}">Mon compte</a>
 							</li>
 							<li>
 								<a class="dropdown-item" href="{{path('app_reservation')}}">Réserver une table</a>
