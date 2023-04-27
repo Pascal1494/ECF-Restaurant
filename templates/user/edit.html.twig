@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1 class="text-center">Mettre à jour les informations de  {{app.user}}</h1>
+
+		{# {{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
+												
+													{# {{ form_row(form.username) }}
+														{{ form_row(form.email) }} #}
+
+		{# {{ form_label(form.avatar) }}
+														{{ form_widget(form.avatar) }} #}
+
+		{# {{ form_end(form) }}  #}
+
+
+		{{ include('user/_form.html.twig', {'button_label': 'Mettre à jour?'}) }}
+
+		{# <a href="{{ path('app_user_index') }}">back to list</a> #}
+			<div class="mt-3"> {{ include('user/_delete_form.html.twig') }}
+		</div>
+	</div>
+{% endblock %}
