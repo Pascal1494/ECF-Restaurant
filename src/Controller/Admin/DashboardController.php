@@ -51,7 +51,8 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::section('LE RESTO', 'fa fa-shop');
         yield MenuItem::linkToCrud('Nouveau resto', 'fa fa-cogs', Restaurant::class)
-            ->setBadge('Ajouter');
+            ->setBadge('Ajouter')
+            ->setCssClass('esasyadmin');;
         yield MenuItem::linkToCrud('les categories', 'fas fa-map-marked', Category::class)
             ->setBadge('Ajouter');
         yield MenuItem::linkToCrud('Les menus', 'fa fa-clipboard', Menu::class)

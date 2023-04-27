@@ -19,42 +19,42 @@
 							<h5 class="widget-title">Les horaires<span></span>
 							</h5>
 							{# <ul class="thumbnail-widget">
-																																																																																																			<li>
-																																																																																																				<div class="thumb-content">
-																																																																																																					<a href="#.">Réservez</a>
-																																																																																																				</div>
-																																																																																																			</li>
-																																																																																																			<li>
-																																																																																																				<div class="thumb-content">
-																																																																																																					<a href="#.">Top Leaders</a>
-																																																																																																				</div>
-																																																																																																			</li>
-																																																																																																			<li>
-																																																																																																				<div class="thumb-content">
-																																																																																																					<a href="#.">Success Stories</a>
-																																																																																																				</div>
-																																																																																																			</li>
-																																																																																																			<li>
-																																																																																																				<div class="thumb-content">
-																																																																																																					<a href="#.">Event/Tickets</a>
-																																																																																																				</div>
-																																																																																																			</li>
-																																																																																																			<li>
-																																																																																																				<div class="thumb-content">
-																																																																																																					<a href="#.">News</a>
-																																																																																																				</div>
-																																																																																																			</li>
-																																																																																																			<li>
-																																																																																																				<div class="thumb-content">
-																																																																																																					<a href="#.">Lifestyle</a>
-																																																																																																				</div>
-																																																																																																			</li>
-																																																																																																			<li>
-																																																																																																				<div class="thumb-content">
-																																																																																																					<a href="#.">About</a>
-																																																																																																				</div>
-																																																																																																			</li>
-																																																																																																		</ul> #}
+																																																																																																																								<li>
+																																																																																																																									<div class="thumb-content">
+																																																																																																																										<a href="#.">Réservez</a>
+																																																																																																																									</div>
+																																																																																																																								</li>
+																																																																																																																								<li>
+																																																																																																																									<div class="thumb-content">
+																																																																																																																										<a href="#.">Top Leaders</a>
+																																																																																																																									</div>
+																																																																																																																								</li>
+																																																																																																																								<li>
+																																																																																																																									<div class="thumb-content">
+																																																																																																																										<a href="#.">Success Stories</a>
+																																																																																																																									</div>
+																																																																																																																								</li>
+																																																																																																																								<li>
+																																																																																																																									<div class="thumb-content">
+																																																																																																																										<a href="#.">Event/Tickets</a>
+																																																																																																																									</div>
+																																																																																																																								</li>
+																																																																																																																								<li>
+																																																																																																																									<div class="thumb-content">
+																																																																																																																										<a href="#.">News</a>
+																																																																																																																									</div>
+																																																																																																																								</li>
+																																																																																																																								<li>
+																																																																																																																									<div class="thumb-content">
+																																																																																																																										<a href="#.">Lifestyle</a>
+																																																																																																																									</div>
+																																																																																																																								</li>
+																																																																																																																								<li>
+																																																																																																																									<div class="thumb-content">
+																																																																																																																										<a href="#.">About</a>
+																																																																																																																									</div>
+																																																																																																																								</li>
+																																																																																																																							</ul> #}
 						</div>
 					</div>
 
@@ -76,20 +76,27 @@
 							<p class="text-center">
 								<a href="mailto:info@domain.com" title="glorythemes">info@domain.com</a>
 							</p>
+							<p class="text-center">
+								{% if is_granted('ROLE_ADMIN') %}
+									<a href="{{ path('admin') }}" class="btn btn-purple">Console administrateur</a>
+								{% endif %}
+							</p>
+
+
 							{# <ul class="social-footer2">
-																																																																																					<li class="">
-																																																																																						<a title="youtube" target="_blank" href="https://bit.ly/3m9avif"><img alt="youtube" width="30" height="30" src="#"></a>
-																																																																																					</li>
-																																																																																					<li class="">
-																																																																																						<a href="https://www.facebook.com/" target="_blank" title="Facebook"><img alt="Facebook" width="30" height="30" src="#"></a>
-																																																																																					</li>
-																																																																																					<li class="">
-																																																																																						<a href="https://twitter.com" target="_blank" title="Twitter"><img alt="Twitter" width="30" height="30" src="#"></a>
-																																																																																					</li>
-																																																																																					<li class="">
-																																																																																						<a title="instagram" target="_blank" href="https://www.instagram.com/"><img alt="instagram" width="30" height="30" src="#"></a>
-																																																																																					</li>
-																																																																																				</ul> #}
+																																																																																																										<li class="">
+																																																																																																											<a title="youtube" target="_blank" href="https://bit.ly/3m9avif"><img alt="youtube" width="30" height="30" src="#"></a>
+																																																																																																										</li>
+																																																																																																										<li class="">
+																																																																																																											<a href="https://www.facebook.com/" target="_blank" title="Facebook"><img alt="Facebook" width="30" height="30" src="#"></a>
+																																																																																																										</li>
+																																																																																																										<li class="">
+																																																																																																											<a href="https://twitter.com" target="_blank" title="Twitter"><img alt="Twitter" width="30" height="30" src="#"></a>
+																																																																																																										</li>
+																																																																																																										<li class="">
+																																																																																																											<a title="instagram" target="_blank" href="https://www.instagram.com/"><img alt="instagram" width="30" height="30" src="#"></a>
+																																																																																																										</li>
+																																																																																																									</ul> #}
 						</div>
 					</div>
 

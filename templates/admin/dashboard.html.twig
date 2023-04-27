@@ -13,7 +13,7 @@
 	</div>
 {% endblock %}
 {% block page_actions %}
-	<a class="btn btn-primary" href="...">Some Action</a>
+	<a class="btn btn-primary" href="{{ path('app_home') }}">Retour sur le site</a>
 {% endblock %}
 
 {% block main %}
@@ -25,19 +25,19 @@
 			{{app.user}}</h1>
 	{% endif %}
 	{# <table class="datagrid">
-																			        <thead>
-																			            <tr>
-																			                <td>Some Column</td>
-																			                <td>Another Column</td>
-																			            </tr>
-																			        </thead>
-																			        <tbody>
-																			            {% for data in my_own_data %}
-																			                <tr>
-																			                    <td>{{ data.someColumn }}</td>
-																			                    <td>{{ data.anotherColumn }}</td>
-																			                </tr>
-																			            {% endfor %}
-																			        </tbody>
-																			    </table> #}
+																				        <thead>
+																				            <tr>
+																				                <td>Some Column</td>
+																				                <td>Another Column</td>
+																				            </tr>
+																				        </thead>
+																				        <tbody>
+																				            {% for data in my_own_data %}
+																				                <tr>
+																				                    <td>{{ data.someColumn }}</td>
+																				                    <td>{{ data.anotherColumn }}</td>
+																				                </tr>
+																				            {% endfor %}
+																				        </tbody>
+																				    </table> #}
 {% endblock %}
