@@ -33,9 +33,9 @@
 							<img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle" height="30" alt="Portrait of a Woman" loading="lazy"/>
 						</a>
 						<ul class="dropdown-menu">
-							<li>
-								<a class="dropdown-item" href="{{path('app_user_edit', {'slug': app.user.slug})}}">Mon compte</a>
-							</li>
+							{# <li>
+								<a class="dropdown-item" href="{{ path('app_user_show', { 'slug': 'app.user.slug' }) }}">Mon compte</a>
+							</li> #}
 							<li>
 								<a class="dropdown-item" href="{{path('app_reservation')}}">Réserver une table</a>
 							</li>

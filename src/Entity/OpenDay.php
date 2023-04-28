@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\OpenDayRepository;
+use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -20,25 +21,28 @@ class OpenDay
     #[ORM\Column]
     private ?bool $isMorningOpen = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[ORM\Column(type: Types::TIME_MUTABLE)]
     private ?\DateTimeInterface $morningOpen = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[ORM\Column(type: Types::TIME_MUTABLE)]
     private ?\DateTimeInterface $morningClose = null;
 
     #[ORM\Column]
     private ?bool $isEveningOpen = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[ORM\Column(type: Types::TIME_MUTABLE)]
     private ?\DateTimeInterface $eveningOpen = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[ORM\Column(type: Types::TIME_MUTABLE)]
     private ?\DateTimeInterface $eveningClose = null;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
 
-   
+   public function __construct()
+   {
+    $this->createdAt = new \DateTimeImmutable();
+   }
 
     public function getId(): ?int
     {

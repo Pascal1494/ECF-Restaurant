@@ -13,6 +13,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 #[Route('/user')]
 class UserController extends AbstractController
@@ -25,9 +26,9 @@ class UserController extends AbstractController
         $user = $this->getUser();
 
         // Génération de l'URL avec le slug de l'utilisateur connecté
-        dd($url = $urlGenerator->generate('app_user_index', [
+        $url = $urlGenerator->generate('app_user_index', [
             'slug' => $user->getSlug()
-        ]));
+        ]);
 
 
         // Redirection vers l'URL générée
@@ -54,11 +55,13 @@ class UserController extends AbstractController
     // }
 
     #[Route('/compte/{slug}', name: 'app_user_show', methods: ['GET'])]
+    #[ParamConverter('user', class: User::class, options: ['mapping' => ['slug' => 'slug']])]
     public function show(UserRepository $userRepository, $slug): Response
 
     {
         $user = $userRepository->findOneBy(['slug' => $slug]);
 
+        dd($user);
         // Vérifiez si l'utilisateur existe
         if (!$user) {
             throw $this->createNotFoundException('L\'utilisateur n\'existe pas.');
@@ -73,10 +76,10 @@ class UserController extends AbstractController
 
     #[Security("is_granted('ROLE_USER') and user === user")]
     #[Route('/compte/{slug}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, User $user, UserRepository $userRepository, Slug $slug): Response
+    public function edit(Request $request, User $user, UserRepository $userRepository): Response
     {
         // dd($user);
-        $slug = $this->getSlug();
+
         $user = $this->getUser();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
@@ -84,7 +87,7 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $userRepository->save($user, true);
 
-            return $this->redirectToRoute('app_user_show', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_user_show', ['slug' => $user->getSlug()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('user/edit.html.twig', [
