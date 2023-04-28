@@ -11,7 +11,7 @@ services:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
-    App\Service\OpenDayService:
+    App\Service\OpenDayService: #service for hourly's into all pages 
         arguments:
             $openDayRepository: '@App\Repository\OpenDayRepository'
 
