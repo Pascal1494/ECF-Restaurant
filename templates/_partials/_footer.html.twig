@@ -18,101 +18,130 @@
 						<div class="widget no-box">
 							<h5 class="widget-title">Les horaires<span></span>
 							</h5>
-							{# <ul class="thumbnail-widget">
-																																																																																																																								<li>
-																																																																																																																									<div class="thumb-content">
-																																																																																																																										<a href="#.">Réservez</a>
-																																																																																																																									</div>
-																																																																																																																								</li>
-																																																																																																																								<li>
-																																																																																																																									<div class="thumb-content">
-																																																																																																																										<a href="#.">Top Leaders</a>
-																																																																																																																									</div>
-																																																																																																																								</li>
-																																																																																																																								<li>
-																																																																																																																									<div class="thumb-content">
-																																																																																																																										<a href="#.">Success Stories</a>
-																																																																																																																									</div>
-																																																																																																																								</li>
-																																																																																																																								<li>
-																																																																																																																									<div class="thumb-content">
-																																																																																																																										<a href="#.">Event/Tickets</a>
-																																																																																																																									</div>
-																																																																																																																								</li>
-																																																																																																																								<li>
-																																																																																																																									<div class="thumb-content">
-																																																																																																																										<a href="#.">News</a>
-																																																																																																																									</div>
-																																																																																																																								</li>
-																																																																																																																								<li>
-																																																																																																																									<div class="thumb-content">
-																																																																																																																										<a href="#.">Lifestyle</a>
-																																																																																																																									</div>
-																																																																																																																								</li>
-																																																																																																																								<li>
-																																																																																																																									<div class="thumb-content">
-																																																																																																																										<a href="#.">About</a>
-																																																																																																																									</div>
-																																																																																																																								</li>
-																																																																																																																							</ul> #}
+
+
+							{% for day in days %}
+
+								<ul class="thumbnail-widget">
+									<li>
+										<div class="thumb-content">
+											<a href="#">{{day.day|upper}}:</a>
+											{% if day.isMorningOpen %}
+												<p href="#">Midi -
+													<span>{{day.morningOpen|date('H:i')}}
+														-
+														{{day.morningClose|date('H:i')}}</span>
+												</p>
+											{% else %}
+												<p>Fermé</p>
+											{% endif %}
+											{% if day.isEveningOpen %}
+												<p href="#.">Soir -
+													<span>{{day.eveningOpen|date('H:i')}}
+														-
+														{{day.eveningClose|date('H:i')}}</span>
+												</p>
+											{% else %}
+												<p>Fermé</p>
+											{% endif %}
+										</div>
+									</li>
+								{% endfor %}
+								{# <ul class="thumbnail-widget">
+																																																																																																																																<li>
+																																																																																																																																	<div class="thumb-content">
+																																																																																																																																		<a href="#.">Réservez</a>
+																																																																																																																																	</div>
+																																																																																																																																</li>
+																																																																																																																																<li>
+																																																																																																																																	<div class="thumb-content">
+																																																																																																																																		<a href="#.">Top Leaders</a>
+																																																																																																																																	</div>
+																																																																																																																																</li>
+																																																																																																																																<li>
+																																																																																																																																	<div class="thumb-content">
+																																																																																																																																		<a href="#.">Success Stories</a>
+																																																																																																																																	</div>
+																																																																																																																																</li>
+																																																																																																																																<li>
+																																																																																																																																	<div class="thumb-content">
+																																																																																																																																		<a href="#.">Event/Tickets</a>
+																																																																																																																																	</div>
+																																																																																																																																</li>
+																																																																																																																																<li>
+																																																																																																																																	<div class="thumb-content">
+																																																																																																																																		<a href="#.">News</a>
+																																																																																																																																	</div>
+																																																																																																																																</li>
+																																																																																																																																<li>
+																																																																																																																																	<div class="thumb-content">
+																																																																																																																																		<a href="#.">Lifestyle</a>
+																																																																																																																																	</div>
+																																																																																																																																</li>
+																																																																																																																																<li>
+																																																																																																																																	<div class="thumb-content">
+																																																																																																																																		<a href="#.">About</a>
+																																																																																																																																	</div>
+																																																																																																																																</li>
+																																																																																																																															</ul> #}
+							</div>
 						</div>
-					</div>
 
-					<div class="col-xs-12 col-sm-6 col-md-3">
-						<div class="widget no-box">
-							<h5 class="widget-title">Envie de réserver une table ?<span></span>
-							</h5>
-							<p>Venez, vous ne serez pas déçu !</p>
-							<a class="btn btn-purple" href="{{path('app_reservation')}}" target="_blank">Réserver</a>
+						<div class="col-xs-12 col-sm-6 col-md-3">
+							<div class="widget no-box">
+								<h5 class="widget-title">Envie de réserver une table ?<span></span>
+								</h5>
+								<p>Venez, vous ne serez pas déçu !</p>
+								<a class="btn btn-purple" href="{{path('app_reservation')}}" target="_blank">Réserver</a>
+							</div>
 						</div>
-					</div>
 
-					<div class="col-xs-12 col-sm-6 col-md-3">
+						<div class="col-xs-12 col-sm-6 col-md-3">
 
-						<div class="widget no-box">
-							<h5 class="widget-title">Contactez nous<span></span>
-							</h5>
+							<div class="widget no-box">
+								<h5 class="widget-title">Contactez nous<span></span>
+								</h5>
 
-							<p class="text-center">
-								<a href="mailto:info@domain.com" title="glorythemes">info@domain.com</a>
-							</p>
-							<p class="text-center">
-								{% if is_granted('ROLE_ADMIN') %}
-									<a href="{{ path('admin') }}" class="btn btn-purple">Console administrateur</a>
-								{% endif %}
-							</p>
+								<p class="text-center">
+									<a href="mailto:info@domain.com" title="glorythemes">info@domain.com</a>
+								</p>
+								<p class="text-center">
+									{% if is_granted('ROLE_ADMIN') %}
+										<a href="{{ path('admin') }}" class="btn btn-purple">Console administrateur</a>
+									{% endif %}
+								</p>
 
 
-							{# <ul class="social-footer2">
-																																																																																																										<li class="">
-																																																																																																											<a title="youtube" target="_blank" href="https://bit.ly/3m9avif"><img alt="youtube" width="30" height="30" src="#"></a>
-																																																																																																										</li>
-																																																																																																										<li class="">
-																																																																																																											<a href="https://www.facebook.com/" target="_blank" title="Facebook"><img alt="Facebook" width="30" height="30" src="#"></a>
-																																																																																																										</li>
-																																																																																																										<li class="">
-																																																																																																											<a href="https://twitter.com" target="_blank" title="Twitter"><img alt="Twitter" width="30" height="30" src="#"></a>
-																																																																																																										</li>
-																																																																																																										<li class="">
-																																																																																																											<a title="instagram" target="_blank" href="https://www.instagram.com/"><img alt="instagram" width="30" height="30" src="#"></a>
-																																																																																																										</li>
-																																																																																																									</ul> #}
+								{# <ul class="social-footer2">
+																																																																																																																		<li class="">
+																																																																																																																			<a title="youtube" target="_blank" href="https://bit.ly/3m9avif"><img alt="youtube" width="30" height="30" src="#"></a>
+																																																																																																																		</li>
+																																																																																																																		<li class="">
+																																																																																																																			<a href="https://www.facebook.com/" target="_blank" title="Facebook"><img alt="Facebook" width="30" height="30" src="#"></a>
+																																																																																																																		</li>
+																																																																																																																		<li class="">
+																																																																																																																			<a href="https://twitter.com" target="_blank" title="Twitter"><img alt="Twitter" width="30" height="30" src="#"></a>
+																																																																																																																		</li>
+																																																																																																																		<li class="">
+																																																																																																																			<a title="instagram" target="_blank" href="https://www.instagram.com/"><img alt="instagram" width="30" height="30" src="#"></a>
+																																																																																																																		</li>
+																																																																																																																	</ul> #}
+							</div>
 						</div>
-					</div>
 
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="footer-copyright">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<p>Copyright Le quai Anthique © 2023. All rights reserved.</p>
+			<div class="footer-copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<p>Copyright Le quai Anthique © 2023. All rights reserved.</p>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</footer>
+		</footer>
 
-</div>
+	</div>

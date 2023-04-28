@@ -89,7 +89,10 @@ class Dishe
 
     public function getSlug(): ?string
     {
-        return strtolower((new Slugify())->slugify($this->name));
+
+        $slugify = new Slugify();
+        $this->slug = $slugify->slugify($this->name);
+        return $this->slug;
     }
 
     public function setSlug(string $slug): self
