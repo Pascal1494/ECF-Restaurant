@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Menu;
 use App\Entity\Dishe;
 use App\Entity\Allergy;
+use App\Entity\OpenDay;
 use App\Entity\Category;
 use App\Entity\Restaurant;
 use Symfony\Component\HttpFoundation\Response;
@@ -54,6 +55,9 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Nouveau resto', 'fa fa-cogs', Restaurant::class)
             ->setBadge('Ajouter')
             ->setCssClass('esasyadmin');
+
+        yield MenuItem::linkToCrud('les horaires', 'fa fa-clock', OpenDay::class)
+            ->setBadge('Ajouter');
 
         yield MenuItem::linkToCrud('les categories', 'fas fa-map-marked', Category::class)
             ->setBadge('Ajouter');
