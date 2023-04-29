@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Form\ContactType;
-use App\Services\MailerService;
+use App\Service\MailerService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,6 +16,7 @@ class ContactController extends AbstractController
     {
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
+        dd($form);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $contactFormData = $form->getData();
