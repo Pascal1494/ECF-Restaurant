@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('assets/css/success.css') }}"/>
+{% endblock %}
+
+{% block title %}Contact Form Submitted
+{% endblock %}
+
+{% block body %}
+	<div class="card-success">
+		<div class="card-rounded">
+			<i class="checkmark">✓</i>
+		</div>
+		<h1>Merci
+		</h1>
+		<p>Nous avons reçu votre demande;<br/>
+			nous vous contacterons sous peu !</p>
+		<button class="btn btn-purple">
+			<a href="{{path('app_home')}}">Le restaurant</a>
+		</button>
+	</div>
+
+{% endblock %}

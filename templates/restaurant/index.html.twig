@@ -1,11 +1,28 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('assets/css/about.css') }}"/>
+{% endblock %}
+
 {% block title %}Hello RestaurantController!
 {% endblock %}
 
 {% block body %}
 	{% include '_partials/_navbar.html.twig' %}
-	<h1>Page du restaurant !</h1>
+	<div class="container body-container">
+
+		<div class="container-fluid body-container-fluid ">
+			<h5>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus molestias accusamus doloribus aspernatur quidem, commodi odit maxime rem delectus ad vero impedit nihil, velit aperiam quo. Odit cum recusandae sint! Nesciunt deserunt autem labore nostrum asperiores natus ipsum eius voluptatum, id a quod architecto iusto eveniet totam ad? Facilis, a.</h5>
+			<h5>3</h5>
+		</div>
+		<br>
+		<div class="container-fluid body-container-fluid ">
+			<h5>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus molestias accusamus doloribus aspernatur quidem, commodi odit maxime rem delectus ad vero impedit nihil, velit aperiam quo. Odit cum recusandae sint! Nesciunt deserunt autem labore nostrum asperiores natus ipsum eius voluptatum, id a quod architecto iusto eveniet totam ad? Facilis, a.</h5>
+			<h5>3</h5>
+		</div>
+
+	</div>
 
 	{% include '_partials/_footer.html.twig'  %}
 

@@ -12,13 +12,13 @@ class MailerService
     }
 
     public function sendEmail(
-        $to = 'lqa-resto@hotmail.fr',
-        $subject = 'Sujet du mail !',
+        $to = 'contact-lqa@hotmail.fr',
+        $subject = 'This is the Mail subject !',
         $content = '',
         $text = ''
     ): void {
         $email = (new Email())
-            ->from('no-reply-lqa-resto@gmail.com')
+            ->from('lqa-contact@lequaianthique.fr')
             ->to($to)
             ->subject($subject)
             ->text($text)

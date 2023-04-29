@@ -14,7 +14,7 @@ class MenusController extends AbstractController
     {
         $openDays = $openDayService->getAllOpenDays();
 
-        return $this->render('menus/index.html.twig', [
+        return $this->render('menus/detail.html.twig', [
             'days' => $openDays,
         ]);
     }

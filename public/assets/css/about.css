@@ -1,0 +1,18 @@
+.body-container {
+  /* background-color: black; */
+  color: beige;
+  height: 100vh;
+  padding: 10px;
+}
+.body-container-fluid {
+  display: flex;
+  justify-content: center;
+  background-color: brown;
+ height: 50%;
+}
+h5 {
+  text-align: justify;
+width: 50%;
+border: 1px solid blue;
+margin: 30px;
+}
