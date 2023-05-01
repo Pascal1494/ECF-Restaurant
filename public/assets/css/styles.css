@@ -230,6 +230,12 @@ h1 {
 }
 
 @media screen and (min-width: 1024px) {
+
+  .main-section {
+    width: 80vh;
+  min-width: 80vh;
+
+}
   .dropdown-menu {
     border: 3px solid pink;
     /* margin-left: -180px !important; */
