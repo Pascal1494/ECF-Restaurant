@@ -23,7 +23,10 @@
   }
 
 .main-section {
-background: center/cover;}
+  background: center/cover;
+  min-height: 80vh;
+
+}
 
 .center-title {
   /* position: absolute; */
@@ -232,7 +235,7 @@ h1 {
 @media screen and (min-width: 1024px) {
 
   .main-section {
-    width: 80vh;
+   
   min-width: 80vh;
 
 }
