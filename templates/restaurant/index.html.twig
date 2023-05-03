@@ -1,13 +1,14 @@
 {% extends 'base.html.twig' %}
 {% block stylesheet %}
-	<link rel="stylesheet" href="assets/css/styles.css">
+	{# <link rel="stylesheet" href="assets/css/styles.css"> #}
+	<link rel="stylesheet" href="{{asset('assets/css/restaurant.css')}}">
 
 
 {% endblock %}
 
 {% block title %}
 
-	Page d'acceuil -
+	Le restaurant
 	{{parent()}}
 	-
 {% endblock %}
@@ -16,34 +17,37 @@
 	{% include '_partials/_navbar.html.twig' %}
 	<section class="main-section" style="background-image: url('/assets/images/background-resto/interieur.jpeg');">
 
-		
-			<div class="center-title">
-				<h1 class="container-title">Le quai Anthique</h1>
 
+		<div class="center-title">
+			<h1 class="container-title">Le restaurant</h1>
+			<div class="main-block">
 				<p class="container-slogan">Le restaurant Le Quai Antique est situé à Chambéry, en France, et est dirigé par le chef Arnaud MICHANT. Le restaurant propose une cuisine française traditionnelle avec une touche contemporaine.</p>
 			</div>
-			{# <main id="main">
-																						{% for menu in menus %}
-																							<div class="card">
-																								<span class="badge">{{menu.price}}
-																									€</span>
-																								<img src="{{ asset('assets/images/menu/' ~ menu.image) }}" alt="{{ menu.name }}">
-																								<div class="text">
-																									<h2>{{ menu.name }}</h2>
-																									<p>{{ menu.description }}</p>
-																									<div class="button-container">
-																										<button class="btn btn-sm btn-purple">
-																											<a href="#">Détail du menu</a>
-																										</button>
-																									</div>
-																								</div>
-																							</div>
-																						{% endfor %}
-																			
-																			
-																					</main> #}
-		</div>
-	</section>
+			<div class="main-photo">
+				<img src="{{asset('assets/images/background-resto/quai.jpeg')}}" alt="photo"></div>
 
-	{% include '_partials/_footer.html.twig' %}
-{% endblock %}
+		</div>
+		{# <main id="main">
+																																{% for menu in menus %}
+																																	<div class="card">
+																																		<span class="badge">{{menu.price}}
+																																			€</span>
+																																		<img src="{{ asset('assets/images/menu/' ~ menu.image) }}" alt="{{ menu.name }}">
+																																		<div class="text">
+																																			<h2>{{ menu.name }}</h2>
+																																			<p>{{ menu.description }}</p>
+																																			<div class="button-container">
+																																				<button class="btn btn-sm btn-purple">
+																																					<a href="#">Détail du menu</a>
+																																				</button>
+																																			</div>
+																																		</div>
+																																	</div>
+																																{% endfor %}
+																													
+																													
+																															</main> #}
+	</div>
+</section>
+
+{% include '_partials/_footer.html.twig' %}{% endblock %}

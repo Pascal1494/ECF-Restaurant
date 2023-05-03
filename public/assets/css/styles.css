@@ -42,7 +42,7 @@
 .center-title {
   /* position: absolute; */
   z-index: 100;
-  color: aliceblue;
+  color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -273,7 +273,7 @@ h1 {
     font-size: 5rem;
     margin-top: 7vw;
     padding: 10px;
-    background-color: #3333334e;
+    background-color: #33333308;
     border-radius: 10px;
   }
   
