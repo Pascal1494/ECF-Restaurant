@@ -1,341 +1,89 @@
-{# <div id="menu-section">
-  <div class="section-title text-center">
-    <div class="overlay">
-      <h2 class="wow fadeInLeft">Carte & menus</h2>
-      <hr>
-      <p class="wow fadeInRight">Notre carte évolue selon les saisons et la créativité de notre Chef.</p>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row"> 
-      <!-- Nav tabs -->
-      <div class="card">
-        <ul class="nav nav-tabs wow fadeInDown" role="tablist">
-          <li role="presentation" class="active"><a href="#entrees" aria-controls="entrees" role="tab" data-toggle="tab">Entrées</a></li>
-          <li role="presentation"><a href="#viandes" aria-controls="viandes" role="tab" data-toggle="tab">Plats</a></li>
-          <!--<li role="presentation"><a href="#poissons" aria-controls="poissons" role="tab" data-toggle="tab">Poissons</a></li>-->
-          <li role="presentation"><a href="#desserts" aria-controls="desserts" role="tab" data-toggle="tab">Desserts</a></li>
-          <li role="presentation"><a href="#formule" aria-controls="formule" role="tab" data-toggle="tab">Formule 44,80€</a></li>
-          <li role="presentation"><a href="#jour" aria-controls="jour" role="tab" data-toggle="tab">Menu du jour</a></li>
-		  <!--<li role="presentation"><a href="#fete" aria-controls="jour" role="tab" data-toggle="tab">Spécial fin d’année  </a></li>
-          <li role="presentation"><a href="#chalet" aria-controls="chalet" role="tab" data-toggle="tab">Menu Chalet</a></li>
-          <li role="presentation"><a href="#entreprise" aria-controls="entreprise" role="tab" data-toggle="tab">Entreprise</a></li>-->
-          <li role="presentation"><a href="#groupe" aria-controls="groupe" role="tab" data-toggle="tab">Groupe</a></li>
-        </ul>
-        
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane fade in active" id="entrees">
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 wow fadeInLeft">
-                <div class="menu-section">
-                  <div class="menu-item">
-                    <div class="menu-item-name">Cuisses de grenouilles façon meunière</div>
-                    <div class="menu-item-price"> 13€ </div>
-                    <div class="menu-item-description">Risotto citron / crème chardonnay aux agrumes</div>
-                  </div>
-                  <div class="menu-item">
-                    <div class="menu-item-name">Rocamadour rôti / raisin blanc au Muscat / compotée de coing</div>
-                    <div class="menu-item-price"> 13€ </div>
-                    <div class="menu-item-description">Tomate confite / concassé de noisettes</div>
-                  </div>
-				  <div class="menu-item">
-					<div class="menu-item-name">Feuilleté de ris de veau et Sot L’y Laisse / persillade de Girolles et petits gris</div>
-					<div class="menu-item-price"> 22€ </div>
-					<div class="menu-item-description">Compotée d’oignons / moutarde à l’ancienne</div>
-				  </div>
-                  <div class="menu-item">
-                    <div class="menu-item-name">Œuf poché</div>
-                    <div class="menu-item-price"> 13€ </div>
-                    <div class="menu-item-description">Lentilles du Puys à la crème d’Isigny et estragon / gressin / dés chorizo et cheddar</div>
-                  </div>
-				</div>
-			  </div>
-              <div class="col-xs-12 col-sm-6 wow fadeInRight">
-				  <div class="menu-section">
-					  <div class="menu-item">
-						<div class="menu-item-name">Cubes de saumon aux baies de Timut</div>
-						<div class="menu-item-price"> 15€ </div>
-						<div class="menu-item-description">mousseline betterave / Brunoise de Granny Smith / julienne de légumes</div>
-					  </div>
-					  <div class="menu-item">
-						<div class="menu-item-name">Soupe au lait de coco / émincé de volaille / crevettes</div>
-						<div class="menu-item-price"> 13€ </div>
-						<div class="menu-item-description">Coriandre – citronnelle / galangal ….. Epicé 😊</div>
-					  </div>
-					  <div class="menu-item">
-						<div class="menu-item-name">Carpaccio de Noix de Saint-Jacques sur miroir Passion-Citron vert</div>
-						<div class="menu-item-price"> 22€ </div>
-						<div class="menu-item-description">baies roses</div>
-					  </div>
+{% extends 'base.html.twig' %}
 
-				  </div>
-              </div>
-            </div>
-          </div>
-          <div role="tabpanel" class="tab-pane fade" id="viandes">
-            <div class="row">
-              <div class="col-xs-12 col-sm-6">
-                <div class="menu-section">
-                  
-                  <div class="menu-item">
-                    <div class="menu-item-name">Carré de Baron de Porcelet laqué / au caramel beurre salé</div>
-                    <div class="menu-item-price"> 23,50€ </div>
-                    <div class="menu-item-description">Gratin dauphinois / tians de légumes</div>
-                  </div>
-					
-				  <div class="menu-item">
-                    <div class="menu-item-name">Tournedos de veau en croûte d’éclats de noisettes / sauce aux marrons</div>
-                    <div class="menu-item-price"> 36€ </div>
-                    <div class="menu-item-description">Pommes coin de rue et légumes gourmands</div>
-                  </div>
-					
-                    
-                <div class="menu-item">
-                    <div class="menu-item-name">Onglet de bœuf origine Irlande gratiné au Brie de Meaux</div>
-                    <div class="menu-item-price"> 23,50€</div>
-                    <div class="menu-item-description">Gratin dauphinois / tians de légumes</div>
-                  </div>
-                    
-                  <div class="menu-item">
-                    <div class="menu-item-name">Filet de bœuf à la vigneronne </div>
-                    <div class="menu-item-price"> 46€ </div>
-                    <div class="menu-item-description">Pommes coin de rue et légumes gourmands</div>
-                  </div>
-					
-				  <div class="menu-item">
-                    <div class="menu-item-name">Selle d’agneau farcie aux mendiants et fruits secs</div>
-                    <div class="menu-item-price"> 23,50€ </div>
-                    <div class="menu-item-description">Jus au cumin / Gratin dauphinois / tians de légumes</div>
-                  </div>
-					
-                  <div class="menu-item">
-                    <div class="menu-item-name">Steak tartare tradition </div>
-                    <div class="menu-item-price"> 18€ </div>
-                    <div class="menu-item-description"></div>
-                  </div>
-					
-				  <div class="menu-item">
-                    <div class="menu-item-name">Wok de volaille – crevettes</div>
-                    <div class="menu-item-price"> 18€</div>
-                    <div class="menu-item-description">Nouilles de riz / germes de soja / mix de légumes</div>
-                  </div>
-				  <div class="menu-item"> 
-                    <div class="menu-item-name">Le Burger de mon pote du Dock</div>
-                    <div class="menu-item-price"> 20€ </div>
-                    <div class="menu-item-description">Lard fumé / frites soufflées </div>
-                  </div>
-					
-				</div>
-              </div>
-				
-              <div class="col-xs-12 col-sm-6">
-                <div class="menu-section">
-				  
-				  <div class="menu-item">
-                    <div class="menu-item-name">Tataki de thon albacore au concassé de cacahuètes </div>
-                    <div class="menu-item-price"> 36€</div>
-                    <div class="menu-item-description">Coulis aux épices thaïlandaises / nems de légumes</div>
-                  </div>
-				  <div class="menu-item">
-                    <div class="menu-item-name">Noix de Saint-Jacques corail / sautées à la plancha</div>
-                    <div class="menu-item-price"> 36€</div>
-                    <div class="menu-item-description">Crème à la vanille Bourbon de Madagascar / Légumes tournés</div>
-                  </div>					
-                  <div class="menu-item">
-                    <div class="menu-item-name">Pappardelle aux fruits de mer et poisson du jour façon Caccuicatta à la badiane</div>
-                    <div class="menu-item-price"> 26€</div>
-                    <div class="menu-item-description">Tagliatelles de légumes</div>
-                  </div>
-                  <div class="menu-item">
-                    <div class="menu-item-name">Filet de julienne en croûte de chorizo	</div>
-                    <div class="menu-item-price"> 23,50€ </div>
-                    <div class="menu-item-description">Flan de légumes / pommes vapeur</div>
-				  </div>
-                  <div class="menu-item"> 
-                    <div class="menu-item-name">Poisson entier rôti au citron vert / sauce Chardonnay acidulée    </div>
-                    <div class="menu-item-price"> 32€ </div>
-                    <div class="menu-item-description">Selon arrivage / pièce de 500g environ</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        
-          <!--<div role="tabpanel" class="tab-pane fade" id="poissons">
-            <div class="row">
-              <div class="col-xs-12 col-sm-12">
-                <div class="menu-section">
-					
-					<div class="menu-item">
-                    <div class="menu-item-name"> Tataki de Thon albacore au concassé de cacahuètes</div>
-                    <div class="menu-item-price"> 28€ </div>
-                    <div class="menu-item-description"> Coulis aux épices thaïlandaises / nems de légumes</div>
-                  </div>
-                  <div class="menu-item">
-                    <div class="menu-item-name"> Joues de lotte / sauce au Combava / petits fruits de mer   </div>
-                    <div class="menu-item-price"> 20€ </div>
-                    <div class="menu-item-description"> Pommes vapeurs / sauce Mer rouge au  fumet de homard</div>
-                  </div>
-				
-				<div class="menu-item">
-                    <div class="menu-item-name"> Osso bucco de lotte en robe de lard / queues de langoustines                       </div>
-                    <div class="menu-item-price"> 39€ </div>
-                    <div class="menu-item-description"> Crème champenoise safranée</div>
-                  </div>
-					
-                  <div class="menu-item">
-                    <div class="menu-item-name"> Marmite du pêcheur façon bouillabaisse... gambas / seiches / cabillaud</div>
-                    <div class="menu-item-price"> 20€ </div>
-                    <div class="menu-item-description"> Saumon /moules /croutons/ rouille / tomate / pomme vapeur</div>
-                  </div>
-					
-					<div class="menu-item">
-                    <div class="menu-item-name"> Noix de Saint-Jacques rôties à la vanille / riz vénéré aux tomates confites</div>
-                    <div class="menu-item-price"> 28€ </div>
-                    <div class="menu-item-description"> </div>
-                  </div>
-					
-                  
-                  
-                </div>
-              </div>
-             
-            </div>
-          </div>-->
-          <div role="tabpanel" class="tab-pane fade" id="desserts">
-			  <div class="row">
-			  	<div class="col-xs-12 text-center">
-				  
-						<p style="color: #666">Desserts réalisés par nos petits pâtissiers...</p>
+{% block title %}Le menus
+	{{ parent() }}
+{% endblock %}
 
- 
-						<p style="color: #666">Nous confectionnons toutes nos pâtisseries avec les chocolats <strong>WEISS</strong>
-					</p>
-				  
-				  </div>
-			  </div>
-            <div class="row">
-              <div class="col-xs-12 col-sm-6">
-                <div class="menu-section">
-				  <div class="menu-item">
-                    <div class="menu-item-name">Tiramisu pina colada / Dacquoise et chips de coco 	</div>
-                    <div class="menu-item-price"> 13€ </div>
-                    <div class="menu-item-description">Ananas confit au Malibu / Mousse noix de coco</div>
-                  </div>
+{% block body %}
 
-				  <div class="menu-item">
-                    <div class="menu-item-name">Mont Blanc revisité / Meringue Française / chantilly gingembre</div>
-                    <div class="menu-item-price"> 15€ </div>
-                    <div class="menu-item-description">gelée de griottes / gingembre – marrons confits - mousse marron</div>
-                  </div>
-				  <div class="menu-item">
-                    <div class="menu-item-name">Tarte citron contemporaine / Crème citron</div>
-                    <div class="menu-item-price"> 13€ </div>
-                    <div class="menu-item-description">Gelée mandarine-passion / Sablé Matcha / Zestes citron confit / segments d’agrumes / meringue Française</div>
-                  </div>
-				  <div class="menu-item">
-                    <div class="menu-item-name">La Poire selon Ana nôtre cheffe Pâtissière  </div>
-                    <div class="menu-item-price"> 15€ </div>
-                    <div class="menu-item-description">Poire pochée aux myrtilles / mousse riz au lait vanillée / Siphon et myrtilles fraîches</div>
-				  </div>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-6">
-                <div class="menu-section">
-			      <div class="menu-item">
-                    <div class="menu-item-name">Profiteroles maison façon éclair  	</div>
-                    <div class="menu-item-price"> 13€ </div>
-                    <div class="menu-item-description">craquelin / glace vanille / mer chocolat</div>
-                  </div>
-				  <div class="menu-item">
-                    <div class="menu-item-name">Café et gourmandises Maison</div>
-                    <div class="menu-item-price"> 13€ </div>
-                    <div class="menu-item-description"></div>
-                  </div>
-				  <div class="menu-item">
-                    <div class="menu-item-name"> <strong>Le plateau du fromager</strong> </div>
-                    <div class="menu-item-price"> 15€ </div>
-                    <div class="menu-item-description">Spécialités Briardes et de nos régions</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> #}
-<div role="tabpanel" class="tab-pane fade" id="formule">
-	<div class="row">
-		<div class="col-xs-12 col-sm-6">
-			<div class="menu-section">
-				<div class="menu-item" align="center">
-					<div class="menu-item-name">
-						Entrées au choix
-					</div>
-					<div class="menu-item-price">
-						&nbsp;
-					</div>
-					<div class="menu-item-description">
-						<strong>Cuisses de grenouilles façon meunière
-						</strong>/ risotto citron<br>
-						crème chardonnay aux agrumes<br><br>
 
-						<strong>Rocamadour rôti / raisin blanc au Muscat / compotée de coing</strong><br><br>
+	<div>
+		<div class="row">
+			<h1>Menu</h1>
+			<div class="col-xs-12 col-sm-6">
+				<div class="menu-section">
+					<div class="menu-item" align="center">
+						<div class="menu-item-name">
+							Entrées au choix
+						</div>
+						<div class="menu-item-price">
+							&nbsp;
+						</div>
+						<div class="menu-item-description">
+							<strong>Cuisses de grenouilles façon meunière
+							</strong>/ risotto citron<br>
+							crème chardonnay aux agrumes<br><br>
 
-						<strong>Œuf poché</strong>
-						/ lentilles du Puys à la crème d’Isigny et estragon<br>
-						gressin
-																																				dés chorizo et cheddar<br><br>
+							<strong>Rocamadour rôti / raisin blanc au Muscat / compotée de coing</strong><br><br>
 
-						<strong>Soupe au lait de coco/ émincé de volaille / crevettes</strong><br>
-						Coriandre – citronnelle / galangal... Epicé 😊<br><br>
+							<strong>Œuf poché</strong>
+							/ lentilles du Puys à la crème d’Isigny et estragon<br>
+							gressin
+																																																																																																dés chorizo et cheddar<br><br>
+
+							<strong>Soupe au lait de coco/ émincé de volaille / crevettes</strong><br>
+							Coriandre – citronnelle / galangal... Epicé 😊<br><br>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-xs-12 col-sm-6">
-			<div class="menu-section">
-				<div class="menu-item" align="center">
-					<div class="menu-item-name">
-						Plats au choix</div>
-					<div class="menu-item-price">
-						&nbsp;
-					</div>
-					<div class="menu-item-description">
-						<strong>Carré de Baron de Porcelet laqué</strong>
-						/ caramel beurre salé<br><br>
+			<div class="col-xs-12 col-sm-6">
+				<div class="menu-section">
+					<div class="menu-item" align="center">
+						<div class="menu-item-name">
+							Plats au choix</div>
+						<div class="menu-item-price">
+							&nbsp;
+						</div>
+						<div class="menu-item-description">
+							<strong>Carré de Baron de Porcelet laqué</strong>
+							/ caramel beurre salé<br><br>
 
-						<strong>Onglet de bœuf Origine Irlande au Brie de Meaux</strong><br><br>
+							<strong>Onglet de bœuf Origine Irlande au Brie de Meaux</strong><br><br>
 
-						<strong>Selle d’agneau farcie aux mendiants et fruits secs</strong>
-						/ jus au cumin<br><br>
+							<strong>Selle d’agneau farcie aux mendiants et fruits secs</strong>
+							/ jus au cumin<br><br>
 
 
-						<strong>Filet de julienne en croûte de chorizo</strong><br><br>
+							<strong>Filet de julienne en croûte de chorizo</strong><br><br>
 
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="menu-item" style="clear:both; text-align:center">
-			<div class="menu-item-name">
-				Desserts au choix
-			</div>
-			<div class="menu-item-price">
-				&nbsp;
-			</div>
-			<div class="menu-item-description">
-				<strong>Tiramisu pina colada</strong>
-				/ Dacquoise et chips de coco / ananas confit au Malibu / Mousse noix de coco<br><br>
+			<div class="menu-item" style="clear:both; text-align:center">
+				<div class="menu-item-name">
+					Desserts au choix
+				</div>
+				<div class="menu-item-price">
+					&nbsp;
+				</div>
+				<div class="menu-item-description">
+					<strong>Tiramisu pina colada</strong>
+					/ Dacquoise et chips de coco / ananas confit au Malibu / Mousse noix de coco<br><br>
 
-				<strong>Tarte citron contemporaine</strong>
-				Crème citron / gelée mandarine-passion / sablé Matcha
-																								Zestes citron confit / segments d’agrumes / meringue Française<br><br>
+					<strong>Tarte citron contemporaine</strong>
+					Crème citron / gelée mandarine-passion / sablé Matcha
+																																																																		Zestes citron confit / segments d’agrumes / meringue Française<br><br>
 
-				<strong>Café et gourmandises maison</strong><br><br>
+					<strong>Café et gourmandises maison</strong><br><br>
 
-				<strong>Profiteroles maison façon éclair</strong>
-				/ craquelin / glace vanille / mer chocolat<br><br>
+					<strong>Profiteroles maison façon éclair</strong>
+					/ craquelin / glace vanille / mer chocolat<br><br>
 
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+
+{% endblock %}

@@ -239,7 +239,7 @@ img {
 
 }
 
-h1 {
+.center-title h1 {
   position: relative;
   color: #ffffff;
   font-weight: 900;
