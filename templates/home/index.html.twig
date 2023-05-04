@@ -18,11 +18,11 @@
 
 
 		<div class="center-title">
-			<h1 class="container-title">Le quai Anthique</h1>
+			<h1 class="container-title">LES MEILLEURES SPÉCIALITÉS DU NORD À CHAMBERY</h1>
 
-			<p class="container-slogan">Le restaurant Le Quai Antique est situé à Chambéry, en France, et est dirigé par le chef Arnaud MICHANT. Le restaurant propose une cuisine française traditionnelle avec une touche contemporaine.</p>
+			<p class="container-slogan">Bienvenue au Quai Anthique, restaurant snacking situé à Chambéry dans lequel vous re-découvrirez les meilleures spécialités du Nord Nous serons ravis de vous accueillir pour partager notre passion pour la cuisine du Nord dans une ambiance chaleureuse et toujours généreuse.</p>
 		</div>
-		<main id="main">
+		<main id="main" class="main">
 			{% for menu in menus %}
 				<div class="card">
 					<span class="badge">{{menu.price}}
@@ -40,8 +40,8 @@
 				</div>
 			{% endfor %}
 
-
 		</main>
+
 	</section>
 
 	{% include '_partials/_footer.html.twig' %}

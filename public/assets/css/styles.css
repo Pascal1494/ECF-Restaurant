@@ -9,6 +9,31 @@
   --highlight: -webkit-linear-gradient(130deg, rgba(255,255,255,1), rgba(255,127,80,1));
 }
 
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: auto;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+
+}
+.navbar-brand img {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+.no-box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+
 .dropdown {
   padding-right: 20px;
 }
@@ -52,8 +77,20 @@
   padding: 20px;
   font-family: 'Baloo Bhaina 2', cursive;
 }
+.container-title {
+  position: relative;
+  margin-top: 200px;
+  margin-bottom: 50px;
+  font-size: 1.2rem;
+}
+.container-slogan {
+  /* border: 1px solid red; */
+  font-size: 1.2rem;
+  /* margin-bottom: 50vh; */
 
-.btn-purple {
+}
+  
+  .btn-purple {
   margin-top: 10px;
   background-color: #8e44ad !important;
   border-color: #8e44ad !important;
@@ -64,6 +101,11 @@
   background-color: #c4acac !important;
   border-color: #c4acac !important;
   color: #8e44ad!important;
+}
+
+.main {
+  margin-top: 30vh;
+  /* border: 1px solid red; */
 }
 
 .card {
@@ -198,20 +240,26 @@ img {
 }
 
 h1 {
-  color: #d6d9df;
+  position: relative;
+  color: #ffffff;
   font-weight: 900;
+  /* border: 1px solid green; */
 }
 
  main {
   display: flex;
   flex-direction: column;
-  margin-top: -200px;
+  margin-top: 30vh;
   align-items: center;
   justify-content: center;
   height: auto;
   min-height: 1100px;
-  margin-top: -200px;
+  /* margin-top: -200px; */
   /* border: 5px solid rgb(192, 255, 195); */
+}
+.main {
+  margin-top: 30vh;
+  /* border: 1px solid red; */
 }
 
 .card:hover .button-container {
@@ -227,6 +275,22 @@ h1 {
 }
 
 @media screen and (min-width: 768px) {
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 8vw;
+  
+  }
+  .navbar-brand img {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    /* border: 1px solid red; */
+  }
+  
 
   .dropdown-menu {
     border: 3px solid pink;
@@ -260,9 +324,11 @@ h1 {
 
   }
   main {
-    padding-top: -300px;
+    /* padding-top: -300px; */
+    margin-top: 40vh;
     min-height: 800px;
     flex-direction: row;
+    /* border: 1px solid pink; */
   }
 
   .badge {
@@ -270,8 +336,8 @@ h1 {
   }
 
   .container-title {
-    font-size: 5rem;
-    margin-top: 7vw;
+    font-size: 3rem;
+    margin-top: 45vh;
     padding: 10px;
     background-color: #33333308;
     border-radius: 10px;
@@ -280,7 +346,8 @@ h1 {
   .container-slogan {
     width: 85%;
     padding: 50px 10px;
-    font-size: 1.6rem;
+    font-size: 2rem;
     background-color: #33333330;
+    margin-bottom: 5vw;
   }
 }
