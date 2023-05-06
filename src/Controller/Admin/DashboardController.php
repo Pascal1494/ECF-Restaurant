@@ -68,7 +68,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Les menus', 'fa fa-clipboard', Menu::class)
             ->setBadge('Ajouter');
 
-        yield MenuItem::linkToCrud('Les plats', 'fa fa-pizza-slice', Dishe::class)
+        yield MenuItem::linkToCrud('Les produits', 'fa fa-pizza-slice', Dishe::class)
             ->setBadge('Ajouter');
 
         yield MenuItem::linkToCrud('les allergies', 'fa fa-hand-dots', Allergy::class)
