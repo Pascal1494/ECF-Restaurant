@@ -9,26 +9,73 @@
 
 
 {% endblock %}
+{# {% block stylesheets %}
+	<link rel="stylesheet" href="{{asset('assets/css/menu.css')}}">
+{% endblock %} #}
 
 {% block body %}
 	{% include '_partials/_navbar.html.twig' %}
-	<h1>{{ menu.name }}</h1>
-	<p>{{ menu.description }}</p>
-	<p>Prix :
-		{{ menu.price }}€</p>
-	<img class="body-dishe"
-	src="{{ asset('assets/images/menu/' ~ menu.image) }}" alt="{{ menu.name }}" style="opacity: 0.4;">
+	<section class="main-section main-menu">
+		<img src="{{ asset('assets/images/menu/' ~ menu.image) }}" alt="{{ menu.name }}">
+
+
+		<div
+			class="px-4 py-5 my-5 text-center menu-text-center">
+			{# <img class="d-block mx-auto mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> #}
+			<h1 class="display-5 fw-bold text-body-emphasis">{{ menu.name }}</h1>
+			<div class="col-lg-6 mx-auto">
+				<h2 class="lead mb-4">{{ menu.description }}</h2>
+				<h2>Prix :
+					{{ menu.price }}€</h2>
+				<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+					<ul>
+						{% for dishe in menu.getDishe() %}
+							<li>{{ dishe.category }}</li>
+							<li>{{ dishe.name }}
+								-
+								{{ dishe.price /100 }}0 €</li>
+
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	{# <section class="main-section" style="background-image: url('{{ asset('assets/images/menu/' ~ menu.image) }}" alt="{{ menu.name }}');">
+												
+														<div class="body-menu">
+															<h1 class="container-title">{{ menu.name }}</h1>
+															<div class="main-block">
+																<p class="container-slogan">{{ menu.description }}</p>
+																<ul>
+																	{% for dishe in menu.getDishe() %}
+																		<li>{{ dishe.category }}</li>
+																		<li>{{ dishe.name }}
+																			-
+																			{{ dishe.price /100 }}0 €</li>
+												
+																	{% endfor %}
+																</ul>
+															</div>
+															{# <h1>{{ menu.name }}</h1> #}
+	{# <p></p>
+															<p>Prix :
+																{{ menu.price }}€</p>
+														</div>  #}
+	{# <img
+																																																																																															class="body-dishe" src="{{ asset('assets/images/menu/' ~ menu.image) }}" alt="{{ menu.name }}" style="opacity: 0.4;"> #}
 
 	{# <h2>Plats</h2> #}
-	<ul>
-		{% for dishe in menu.getDishe() %}
-			<li>{{ dishe.category }}</li>
-			<li>{{ dishe.name }}
-				-
-				{{ dishe.price /100 }}0 €</li>
+	{# <ul>
+																																																															{% for dishe in menu.getDishe() %}
+																																																																<li>{{ dishe.category }}</li>
+																																																																<li>{{ dishe.name }}
+																																																																	-
+																																																																	{{ dishe.price /100 }}0 €</li>
+																																																											
+																																																															{% endfor %}
+																																																														</ul> #}
 
-		{% endfor %}
-	</ul>
-
-	{% include '_partials/_footer.html.twig' %}
-{% endblock %}
+{% include '_partials/_footer.html.twig' %}{% endblock %}

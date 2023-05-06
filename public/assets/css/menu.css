@@ -1,0 +1,25 @@
+
+
+*{
+  list-style: none;
+  font-family: 'Boogaloo', cursive;
+}
+
+.main-menu {
+padding: 0 !important;
+margin: 0 !important;
+}
+.main-menu img {
+  opacity: 0.15;
+  border: 20px solid pink;
+}
+
+.menu-text-center {
+  width: 90%;
+  margin: 25px auto;
+  /* border: 1px solid red; */
+  /* z-index: 1000 !important; */
+}
+li {
+text-transform: capitalize;
+}
