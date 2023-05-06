@@ -1,89 +1,34 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Le menus
+{% block title %}
+
+	Le menu
+	{{ menu.name }}
 	{{ parent() }}
+	{# {{ dishes.menu.name }} #}
+
+
 {% endblock %}
 
 {% block body %}
+	{% include '_partials/_navbar.html.twig' %}
+	<h1>{{ menu.name }}</h1>
+	<p>{{ menu.description }}</p>
+	<p>Prix :
+		{{ menu.price }}€</p>
+	<img class="body-dishe"
+	src="{{ asset('assets/images/menu/' ~ menu.image) }}" alt="{{ menu.name }}" style="opacity: 0.4;">
 
+	{# <h2>Plats</h2> #}
+	<ul>
+		{% for dishe in menu.getDishe() %}
+			<li>{{ dishe.category }}</li>
+			<li>{{ dishe.name }}
+				-
+				{{ dishe.price /100 }}0 €</li>
 
-	<div>
-		<div class="row">
-			<h1>Menu</h1>
-			<div class="col-xs-12 col-sm-6">
-				<div class="menu-section">
-					<div class="menu-item" align="center">
-						<div class="menu-item-name">
-							Entrées au choix
-						</div>
-						<div class="menu-item-price">
-							&nbsp;
-						</div>
-						<div class="menu-item-description">
-							<strong>Cuisses de grenouilles façon meunière
-							</strong>/ risotto citron<br>
-							crème chardonnay aux agrumes<br><br>
+		{% endfor %}
+	</ul>
 
-							<strong>Rocamadour rôti / raisin blanc au Muscat / compotée de coing</strong><br><br>
-
-							<strong>Œuf poché</strong>
-							/ lentilles du Puys à la crème d’Isigny et estragon<br>
-							gressin
-																																																																																																dés chorizo et cheddar<br><br>
-
-							<strong>Soupe au lait de coco/ émincé de volaille / crevettes</strong><br>
-							Coriandre – citronnelle / galangal... Epicé 😊<br><br>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-6">
-				<div class="menu-section">
-					<div class="menu-item" align="center">
-						<div class="menu-item-name">
-							Plats au choix</div>
-						<div class="menu-item-price">
-							&nbsp;
-						</div>
-						<div class="menu-item-description">
-							<strong>Carré de Baron de Porcelet laqué</strong>
-							/ caramel beurre salé<br><br>
-
-							<strong>Onglet de bœuf Origine Irlande au Brie de Meaux</strong><br><br>
-
-							<strong>Selle d’agneau farcie aux mendiants et fruits secs</strong>
-							/ jus au cumin<br><br>
-
-
-							<strong>Filet de julienne en croûte de chorizo</strong><br><br>
-
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="menu-item" style="clear:both; text-align:center">
-				<div class="menu-item-name">
-					Desserts au choix
-				</div>
-				<div class="menu-item-price">
-					&nbsp;
-				</div>
-				<div class="menu-item-description">
-					<strong>Tiramisu pina colada</strong>
-					/ Dacquoise et chips de coco / ananas confit au Malibu / Mousse noix de coco<br><br>
-
-					<strong>Tarte citron contemporaine</strong>
-					Crème citron / gelée mandarine-passion / sablé Matcha
-																																																																		Zestes citron confit / segments d’agrumes / meringue Française<br><br>
-
-					<strong>Café et gourmandises maison</strong><br><br>
-
-					<strong>Profiteroles maison façon éclair</strong>
-					/ craquelin / glace vanille / mer chocolat<br><br>
-
-				</div>
-			</div>
-		</div>
-	</div>
-
+	{% include '_partials/_footer.html.twig' %}
 {% endblock %}

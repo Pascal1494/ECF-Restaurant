@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class MenuCrudController extends AbstractCrudController
 {
@@ -26,6 +27,7 @@ class MenuCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('name'),
+            AssociationField::new('dishe'),
             TextareaField::new('description'),
             ImageField::new('image')
                 ->setBasePath(self::PRODUCTS_BASE_PATH)

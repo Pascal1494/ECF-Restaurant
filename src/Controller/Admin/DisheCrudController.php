@@ -13,6 +13,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 
 class DisheCrudController extends AbstractCrudController
 {
@@ -29,13 +30,16 @@ class DisheCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             AssociationField::new('category', 'Catégorie'),
+            AssociationField::new('menu', 'menu'),
             TextField::new('name'),
             ImageField::new('image')
                 ->setBasePath(self::PRODUCTS_BASE_PATH)
                 ->setUploadDir(self::PRODUCTS_UPLOAD_DIR)
                 ->setSortable(false),
-            TextEditorField::new('description'),
-            MoneyField::new('price')->setCurrency('EUR'),
+            TextareaField::new('description'),
+            MoneyField::new('price')
+                ->setCurrency('EUR'),
+
             SlugField::new('slug')->setTargetFieldName('name'),
             DateTimeField::new('createdAt'),
 

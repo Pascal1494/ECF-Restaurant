@@ -1,0 +1,6 @@
+easy_admin:
+    entities:
+        Dishes:
+            class: App\Entity\Dishes
+            form:
+                title: 'Plats'

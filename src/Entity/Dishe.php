@@ -23,7 +23,7 @@ class Dishe
     private ?string $description = null;
 
     #[ORM\Column]
-    private ?float $price = null;
+    private ?string $price = null;
 
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
@@ -38,8 +38,13 @@ class Dishe
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
 
+
+
     #[ORM\ManyToOne(inversedBy: 'dishe')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?Menu $menu = null;
+
+
 
     public function __construct()
     {
@@ -75,12 +80,12 @@ class Dishe
         return $this;
     }
 
-    public function getPrice(): ?float
+    public function getPrice(): ?string
     {
         return $this->price;
     }
 
-    public function setPrice(float $price): self
+    public function setPrice(string $price): self
     {
         $this->price = $price;
 
@@ -148,5 +153,9 @@ class Dishe
         $this->menu = $menu;
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->name;
     }
 }

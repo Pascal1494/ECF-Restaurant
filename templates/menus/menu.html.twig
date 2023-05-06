@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>{{ menu.name }}</h1>
+    <p>{{ menu.description }}</p>
+    <p>Price: {{ menu.price }}</p>
+    <img src="{{ menu.image }}" alt="{{ menu.name }}">
+
+    <h2>Dishes</h2>
+    <ul>
+        {% for dish in dishes %}
+            <li>{{ dish.name }} - {{ dish.price }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -7,7 +7,7 @@
 
 {% block title %}
 
-	Page d'acceuil -
+	Page d'acceuil
 	{{parent()}}
 	-
 {% endblock %}
@@ -33,7 +33,7 @@
 						<p>{{ menu.description }}</p>
 						<div class="button-container">
 							<button class="btn btn-sm btn-purple">
-								<a href="#">Détail du menu</a>
+								<a href="{{ path('app_menus_detail', { 'slug': menu.slug, 'menuId': menu.id }) }}">Détail du menu</a>
 							</button>
 						</div>
 					</div>

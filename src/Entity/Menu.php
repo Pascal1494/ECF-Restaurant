@@ -22,18 +22,30 @@ class Menu
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
-   
+
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 6, scale: 2)]
+    #[ORM\Column]
     private ?string $price = null;
 
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
-   
+    #[ORM\OneToMany(mappedBy: 'menu', targetEntity: Dishe::class)]
+    private Collection $dishe;
+
+    public function __construct()
+    {
+        $this->dishe = new ArrayCollection();
+    }
+
+
+
+
+
+
 
     public function getId(): ?int
     {
@@ -101,6 +113,36 @@ class Menu
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Dishe>
+     */
+    public function getDishe(): Collection
+    {
+        return $this->dishe;
+    }
+
+    public function addDishe(Dishe $dishe): self
+    {
+        if (!$this->dishe->contains($dishe)) {
+            $this->dishe->add($dishe);
+            $dishe->setMenu($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDishe(Dishe $dishe): self
+    {
+        if ($this->dishe->removeElement($dishe)) {
+            // set the owning side to null (unless already changed)
+            if ($dishe->getMenu() === $this) {
+                $dishe->setMenu(null);
+            }
+        }
 
         return $this;
     }

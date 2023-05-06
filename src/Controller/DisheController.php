@@ -17,5 +17,6 @@ class DisheController extends AbstractController
         return $this->render('dishe/index.html.twig', [
             'dishe' => $dishe
         ]);
+        
     }
 }

@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
+use App\Entity\Menu;
 use App\Entity\Dishe;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Dishe>
@@ -39,28 +40,55 @@ class DisheRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Dishe[] Returns an array of Dishe objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('d')
-//            ->andWhere('d.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('d.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
 
-//    public function findOneBySomeField($value): ?Dishe
-//    {
-//        return $this->createQueryBuilder('d')
-//            ->andWhere('d.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function getDishesByMenu(Menu $menu): array
+{
+    $dishes = $this->getEntityManager()
+        ->getRepository(Dishe::class)
+        ->createQueryBuilder('d')
+        ->where('d.menu = :menu')
+        ->setParameter('menu', $menu)
+        ->getQuery()
+        ->getResult();
+
+    return $dishes;
+}
+
+    //    /**
+    //     * @return Dishe[] Returns an array of Dishe objects
+    //     */
+    // public function findByField($menu): array
+    // {
+    //     return $this->createQueryBuilder('d')
+    //         ->andWhere('d.menu = :menu')
+    //         ->setParameter('menu', $menu)
+    //         ->orderBy('d.id', 'ASC')
+    //         ->setMaxResults(3)
+    //         ->getQuery()
+    //         ->getResult();
+    // }
+    //    /**
+    //     * @return Dishe[] Returns an array of Dishe objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('d')
+    //            ->andWhere('d.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('d.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
+
+    //    public function findOneBySomeField($value): ?Dishe
+    //    {
+    //        return $this->createQueryBuilder('d')
+    //            ->andWhere('d.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
 }
