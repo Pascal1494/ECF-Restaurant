@@ -16,22 +16,22 @@ class MenusController extends AbstractController
 {
 
 
-    #[Route('/menus/menu/{slug}', name: 'app_menus_show')]
-    public function index(OpenDayService $openDayService, MenuRepository $menuRepository, EntityManagerInterface $em, $slug, $id): Response
-    {
-        $openDays = $openDayService->getAllOpenDays();
-        $menus = $menuRepository->findBy(['slug' => $slug]);
-        $dishes = $menuRepository->findBy(['id' => $id]);
+    // #[Route('/menus/menu/{slug}', name: 'app_menus_show')]
+    // public function index(OpenDayService $openDayService, MenuRepository $menuRepository, EntityManagerInterface $em, $slug, $id): Response
+    // {
+    //     $openDays = $openDayService->getAllOpenDays();
+    //     $menus = $menuRepository->findBy(['slug' => $slug]);
+    //     $dishes = $menuRepository->findBy(['id' => $id]);
 
 
-        return $this->render('menus/detail.html.twig', [
-            'days' => $openDays,
-            'menus' => $menus,
-            'dishes' => $dishes
-        ]);
-    }
+    //     return $this->render('menus/detail.html.twig', [
+    //         'days' => $openDays,
+    //         'menus' => $menus,
+    //         'dishes' => $dishes
+    //     ]);
+    // }
     #[Route('/menus/{slug}', name: 'app_menus_detail')]
-    public function show(OpenDayService $openDayService, MenuRepository $menu, EntityManagerInterface $em, $slug): Response
+    public function show(DisheRepository $dishe, OpenDayService $openDayService, MenuRepository $menu, EntityManagerInterface $em, $slug): Response
     {
         $openDays = $openDayService->getAllOpenDays();
         $menu = $em->getRepository(Menu::class)->findOneBy(['slug' => $slug]);
@@ -46,6 +46,7 @@ class MenusController extends AbstractController
         return $this->render('menus/detail.html.twig', [
             'days' => $openDays,
             'menu' => $menu,
+            'dishes' => $dishe,
         ]);
     }
 }

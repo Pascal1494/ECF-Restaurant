@@ -34,6 +34,14 @@ class CategoryFixtures extends Fixture
     $category5->setName('burger');
     $manager->persist($category5);
 
+    $category6 = new Category();
+    $category6->setName('bière');
+    $manager->persist($category6);
+
+    $category7 = new Category();
+    $category7->setName('vin');
+    $manager->persist($category7);
+
 
     $manager->flush();
   }
