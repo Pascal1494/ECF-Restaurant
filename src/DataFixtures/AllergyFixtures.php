@@ -6,6 +6,7 @@ use App\Entity\Allergy;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
+
 class AllergyFixtures extends Fixture
 {
   public function load(ObjectManager $manager): void
@@ -20,11 +21,11 @@ class AllergyFixtures extends Fixture
     $fruitsDeMer = new Allergy();
     $fruitsDeMer->setName('fruits de mer');
     $manager->persist($fruitsDeMer);
-    
+
     $produitsLaitiers = new Allergy();
     $produitsLaitiers->setName('produits laitiers');
     $manager->persist($produitsLaitiers);
-    
+
     $gluten = new Allergy();
     $gluten->setName('gluten');
     $manager->persist($gluten);
@@ -41,7 +42,7 @@ class AllergyFixtures extends Fixture
     $soja->setName('soja');
     $manager->persist($soja);
 
-    
+
     $manager->flush();
   }
 }

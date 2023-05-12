@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\OpenDayRepository;
+use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\OpenDayRepository;
 
 #[ORM\Entity(repositoryClass: OpenDayRepository::class)]
 class OpenDay
@@ -37,6 +38,11 @@ class OpenDay
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
+
+    public function __construct()
+    {
+        $this->createdAt = new DateTimeImmutable();
+    }
 
    
 
