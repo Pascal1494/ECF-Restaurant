@@ -3,8 +3,8 @@
 namespace App\Entity;
 
 use App\Entity\Trait\CreatedAtTrait;
+use App\Entity\Trait\SlugTrait;
 use DateTimeImmutable;
-use Cocur\Slugify\Slugify;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\DisheRepository;
@@ -13,6 +13,7 @@ use App\Repository\DisheRepository;
 class Dishe
 {
     use CreatedAtTrait;
+    use SlugTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -28,13 +29,11 @@ class Dishe
     #[ORM\Column]
     private ?string $price = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $slug = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
-    
+
     #[ORM\ManyToOne(inversedBy: 'dishes')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
@@ -93,20 +92,7 @@ class Dishe
         return $this;
     }
 
-    public function getSlug(): ?string
-    {
 
-        $slugify = new Slugify();
-        $this->slug = $slugify->slugify($this->name);
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
 
     public function getImage(): ?string
     {
@@ -119,7 +105,7 @@ class Dishe
 
         return $this;
     }
-    
+
 
     public function getCategory(): ?Category
     {

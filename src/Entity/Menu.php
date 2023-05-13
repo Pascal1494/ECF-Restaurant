@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Trait\SlugTrait;
 use App\Repository\MenuRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -11,6 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: MenuRepository::class)]
 class Menu
 {
+    use SlugTrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -18,10 +21,6 @@ class Menu
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $slug = null;
-
 
 
     #[ORM\Column(type: Types::TEXT)]
@@ -41,12 +40,6 @@ class Menu
         $this->dishe = new ArrayCollection();
     }
 
-
-
-
-
-
-
     public function getId(): ?int
     {
         return $this->id;
@@ -63,19 +56,7 @@ class Menu
 
         return $this;
     }
-
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
+    
     public function __toString()
     {
         return $this->name;
