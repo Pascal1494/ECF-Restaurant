@@ -23,35 +23,52 @@ class DisheFixtures extends Fixture implements DependentFixtureInterface
   public function load(ObjectManager $manager): void
   {
 
-    $category = new Category();
-    $category->setName('entrée');
-    $manager->persist($category);
-    $this->addReference('entrée', $category);
+    $category = $this->CreateCategory('entrée', $manager);
+    $category = $this->CreateCategory('plat', $manager);
+    $category = $this->CreateCategory('dessert', $manager);
+    $category = $this->CreateCategory('fromage', $manager);
+    $category = $this->CreateCategory('bière', $manager);
+    $category = $this->CreateCategory('vin', $manager);
+    $category = $this->CreateCategory('soda', $manager);
+    $category = $this->CreateCategory('eau plate', $manager);
+    $category = $this->CreateCategory('eau gazeuse', $manager);
+    $category = $this->CreateCategory('cocktail', $manager);
+    $category = $this->CreateCategory('supplément', $manager);
 
-    $category = new Category();
-    $category->setName('plat');
-    $manager->persist($category);
-    $this->addReference('plat', $category);
 
-    $category = new Category();
-    $category->setName('dessert');
-    $manager->persist($category);
-    $this->addReference('dessert', $category);
+    // $category = new Category();
+    // $category->setName('entrée');
+    // $manager->persist($category);
+    // $this->addReference('entrée', $category);
 
-    $category = new Category();
-    $category->setName('fromage');
-    $manager->persist($category);
-    $this->addReference('fromage', $category);
+    // $category = new Category();
+    // $category->setName('plat');
+    // $manager->persist($category);
+    // $this->addReference('plat', $category);
 
-    $category = new Category();
-    $category->setName('bière');
-    $manager->persist($category);
-    $this->addReference('bière', $category);
+    // $category = new Category();
+    // $category->setName('dessert');
+    // $manager->persist($category);
+    // $this->addReference('dessert', $category);
 
-    $category = new Category();
-    $category->setName('vin');
-    $manager->persist($category);
-    $this->addReference('vin', $category);
+    // $category = new Category();
+    // $category->setName('fromage');
+    // $manager->persist($category);
+    // $this->addReference('fromage', $category);
+
+    // $category = new Category();
+    // $category->setName('bière');
+    // $manager->persist($category);
+    // $this->addReference('bière', $category);
+
+    // $category = new Category();
+    // $category->setName('vin');
+    // $manager->persist($category);
+    // $this->addReference('vin', $category);
+
+    
+    
+
 
     $menu = new Menu();
     $menu->setName('L\'klassik du ch\'ti');
@@ -149,112 +166,112 @@ class DisheFixtures extends Fixture implements DependentFixtureInterface
     $manager->persist($dishe);
 
 
-     // 3eme menu
-     $menu = new Menu();
-     $menu->setName('El mér et les marés');
-     $menu->setSlug($this->slugger->slug($menu->getName())->lower());
-     $menu->setDescription('menu qui met à l\'honneur les produits de la mer et des marais de la région du Nord de la France. Moules frites, waterzoi de pouletet tarte aux sucre. Ce menu est idéal pour ceux qui aiment les produits de la mer et de la terre et qui souhaitent découvrir les saveurs authentiques de la région du Nord de la France.');
-     $menu->setPrice('36.50');
-     $manager->persist($menu);
-     $this->addReference('El mér et les marés', $menu);
-     //entrées
-     $dishe = new Dishe();
-     $dishe->setName('moules-frites ');
-     $dishe->setDescription('plat emblématique du Nord, où les moules sont cuites dans un bouillon de légumes et de vin blanc, servi avec des frites dorées.');
-     $dishe->setPrice('19.00');
-     $dishe->setSlug($this->slugger->slug($dishe->getName())->lower());
-     $category = $this->getReference('entrée');
-     $dishe->setCategory($category);
-     $menu = $this->getReference('El mér et les marés');
-     $dishe->setMenu($menu);
-     $manager->persist($dishe);
- 
-     $dishe = new Dishe();
-     $dishe->setName('Waterzoï de poulet');
-     $dishe->setDescription('spécialité flamande à base de poulet cuit dans un bouillon crémeux à base de légumes et d\'herbes aromatiques, accompagné de pommes de terre vapeur.');
-     $dishe->setPrice('21.00');
-     $dishe->setSlug($this->slugger->slug($dishe->getName())->lower());
-     $category = $this->getReference('plat');
-     $dishe->setCategory($category);
-     $menu = $this->getReference('El mér et les marés');
-     $dishe->setMenu($menu);
-     $manager->persist($dishe);
- 
-     $dishe = new Dishe();
-     $dishe->setName('Tarte au sucre');
-     $dishe->setDescription('une tarte sucrée et croustillante à base de cassonade, une variété de sucre brun typique de la région.');
-     $dishe->setPrice('8.00');
-     $dishe->setSlug($this->slugger->slug($dishe->getName())->lower());
-     $category = $this->getReference('dessert');
-     $dishe->setCategory($category);
-     $menu = $this->getReference('El mér et les marés');
-     $dishe->setMenu($menu);
-     $manager->persist($dishe);
- 
-     $dishe = new Dishe();
-     $dishe->setName('gascogne horgelus sec');
-     $dishe->setDescription('Le Gasconne Horgelus est un vin blanc sec produit dans la région de Gascogne, dans le Sud-Ouest de la France. Il est élaboré à partir d\'un assemblage de cépages locaux tels que le Colombard, l\'Ugni Blanc et le Gros Manseng. Ce vin se distingue par son nez intense et fruité, avec des arômes d\'agrumes, de fruits exotiques et de fleurs blanches. En bouche, il est frais, vif et légèrement acidulé, avec une finale persistante et aromatique. Le Gasconne Horgelus accompagne parfaitement les fruits de mer, les poissons grillés et les plats de viande blanche.');
-     $dishe->setPrice('8.00');
-     $dishe->setSlug($this->slugger->slug($dishe->getName())->lower());
-     $category = $this->getReference('vin');
-     $dishe->setCategory($category);
-     $menu = $this->getReference('El mér et les marés');
-     $dishe->setMenu($menu);
-     $manager->persist($dishe);
+    // 3eme menu
+    $menu = new Menu();
+    $menu->setName('El mér et les marés');
+    $menu->setSlug($this->slugger->slug($menu->getName())->lower());
+    $menu->setDescription('menu qui met à l\'honneur les produits de la mer et des marais de la région du Nord de la France. Moules frites, waterzoi de pouletet tarte aux sucre. Ce menu est idéal pour ceux qui aiment les produits de la mer et de la terre et qui souhaitent découvrir les saveurs authentiques de la région du Nord de la France.');
+    $menu->setPrice('36.50');
+    $manager->persist($menu);
+    $this->addReference('El mér et les marés', $menu);
+    //entrées
+    $dishe = new Dishe();
+    $dishe->setName('moules-frites ');
+    $dishe->setDescription('plat emblématique du Nord, où les moules sont cuites dans un bouillon de légumes et de vin blanc, servi avec des frites dorées.');
+    $dishe->setPrice('19.00');
+    $dishe->setSlug($this->slugger->slug($dishe->getName())->lower());
+    $category = $this->getReference('entrée');
+    $dishe->setCategory($category);
+    $menu = $this->getReference('El mér et les marés');
+    $dishe->setMenu($menu);
+    $manager->persist($dishe);
 
-      // 4eme menu
-      $menu = new Menu();
-      $menu->setName('L\'Nord din l\'assiette ');
-      $menu->setSlug($this->slugger->slug($menu->getName())->lower());
-      $menu->setDescription('menu qui propose une sélection de plats emblématiques de la région du Nord de la France, revisités avec une touche moderne et créative. Ce menu est idéal pour ceux qui recherchent une cuisine moderne et inventive, tout en gardant les saveurs authentiques de la région du Nord de la France.');
-      $menu->setPrice('58.50');
-      $manager->persist($menu);
-      $this->addReference('L\'Nord din l\'assiette ', $menu);
-      //entrées
-      $dishe = new Dishe();
-      $dishe->setName('salade de chicons,');
-      $dishe->setDescription('alade à base d\'endives, de pommes et de noix, accompagnée d\'une vinaigrette à base de vinaigre de cidre.');
-      $dishe->setPrice('9.60');
-      $dishe->setSlug($this->slugger->slug($dishe->getName())->lower());
-      $category = $this->getReference('entrée');
-      $dishe->setCategory($category);
-      $menu = $this->getReference('L\'Nord din l\'assiette ');
-      $dishe->setMenu($menu);
-      $manager->persist($dishe);
-  
-      $dishe = new Dishe();
-      $dishe->setName('Pavé de cabillaud');
-      $dishe->setDescription('poisson blanc cuit à la perfection, servi avec une purée de céleri-rave et une sauce au beurre blanc et à l\'estragon');
-      $dishe->setPrice('23.00');
-      $dishe->setSlug($this->slugger->slug($dishe->getName())->lower());
-      $category = $this->getReference('plat');
-      $dishe->setCategory($category);
-      $menu = $this->getReference('L\'Nord din l\'assiette ');
-      $dishe->setMenu($menu);
-      $manager->persist($dishe);
-  
-      $dishe = new Dishe();
-      $dishe->setName('Crème brûlée à la vanille de Madagascar');
-      $dishe->setDescription('une crème onctueuse et légèrement parfumée à la vanille, accompagnée d\'un biscuit croquant');
-      $dishe->setPrice('11.00');
-      $dishe->setSlug($this->slugger->slug($dishe->getName())->lower());
-      $category = $this->getReference('dessert');
-      $dishe->setCategory($category);
-      $menu = $this->getReference('L\'Nord din l\'assiette ');
-      $dishe->setMenu($menu);
-      $manager->persist($dishe);
-  
-      $dishe = new Dishe();
-      $dishe->setName('Igp meditérannée brise marine');
-      $dishe->setDescription('L\'IGP Méditerranée Brise Marine est un vin rouge ou rosé produit dans la région méditerranéenne de la France. Ce vin est connu pour ses arômes frais et marins, rappelant l\'air salin de la mer. Il est souvent associé à des notes de fruits rouges ou de baies, avec une acidité équilibrée et une finale légèrement épicée. C\'est un vin rafraîchissant et facile à boire, parfait pour accompagner les fruits de mer ou les plats méditerranéens légers.');
-      $dishe->setPrice('18.00');
-      $dishe->setSlug($this->slugger->slug($dishe->getName())->lower());
-      $category = $this->getReference('vin');
-      $dishe->setCategory($category);
-      $menu = $this->getReference('L\'Nord din l\'assiette ');
-      $dishe->setMenu($menu);
-      $manager->persist($dishe);
- 
+    $dishe = new Dishe();
+    $dishe->setName('Waterzoï de poulet');
+    $dishe->setDescription('spécialité flamande à base de poulet cuit dans un bouillon crémeux à base de légumes et d\'herbes aromatiques, accompagné de pommes de terre vapeur.');
+    $dishe->setPrice('21.00');
+    $dishe->setSlug($this->slugger->slug($dishe->getName())->lower());
+    $category = $this->getReference('plat');
+    $dishe->setCategory($category);
+    $menu = $this->getReference('El mér et les marés');
+    $dishe->setMenu($menu);
+    $manager->persist($dishe);
+
+    $dishe = new Dishe();
+    $dishe->setName('Tarte au sucre');
+    $dishe->setDescription('une tarte sucrée et croustillante à base de cassonade, une variété de sucre brun typique de la région.');
+    $dishe->setPrice('8.00');
+    $dishe->setSlug($this->slugger->slug($dishe->getName())->lower());
+    $category = $this->getReference('dessert');
+    $dishe->setCategory($category);
+    $menu = $this->getReference('El mér et les marés');
+    $dishe->setMenu($menu);
+    $manager->persist($dishe);
+
+    $dishe = new Dishe();
+    $dishe->setName('gascogne horgelus sec');
+    $dishe->setDescription('Le Gasconne Horgelus est un vin blanc sec produit dans la région de Gascogne, dans le Sud-Ouest de la France. Il est élaboré à partir d\'un assemblage de cépages locaux tels que le Colombard, l\'Ugni Blanc et le Gros Manseng. Ce vin se distingue par son nez intense et fruité, avec des arômes d\'agrumes, de fruits exotiques et de fleurs blanches. En bouche, il est frais, vif et légèrement acidulé, avec une finale persistante et aromatique. Le Gasconne Horgelus accompagne parfaitement les fruits de mer, les poissons grillés et les plats de viande blanche.');
+    $dishe->setPrice('8.00');
+    $dishe->setSlug($this->slugger->slug($dishe->getName())->lower());
+    $category = $this->getReference('vin');
+    $dishe->setCategory($category);
+    $menu = $this->getReference('El mér et les marés');
+    $dishe->setMenu($menu);
+    $manager->persist($dishe);
+
+    // 4eme menu
+    $menu = new Menu();
+    $menu->setName('L\'Nord din l\'assiette ');
+    $menu->setSlug($this->slugger->slug($menu->getName())->lower());
+    $menu->setDescription('menu qui propose une sélection de plats emblématiques de la région du Nord de la France, revisités avec une touche moderne et créative. Ce menu est idéal pour ceux qui recherchent une cuisine moderne et inventive, tout en gardant les saveurs authentiques de la région du Nord de la France.');
+    $menu->setPrice('58.50');
+    $manager->persist($menu);
+    $this->addReference('L\'Nord din l\'assiette ', $menu);
+    //entrées
+    $dishe = new Dishe();
+    $dishe->setName('salade de chicons,');
+    $dishe->setDescription('alade à base d\'endives, de pommes et de noix, accompagnée d\'une vinaigrette à base de vinaigre de cidre.');
+    $dishe->setPrice('9.60');
+    $dishe->setSlug($this->slugger->slug($dishe->getName())->lower());
+    $category = $this->getReference('entrée');
+    $dishe->setCategory($category);
+    $menu = $this->getReference('L\'Nord din l\'assiette ');
+    $dishe->setMenu($menu);
+    $manager->persist($dishe);
+
+    $dishe = new Dishe();
+    $dishe->setName('Pavé de cabillaud');
+    $dishe->setDescription('poisson blanc cuit à la perfection, servi avec une purée de céleri-rave et une sauce au beurre blanc et à l\'estragon');
+    $dishe->setPrice('23.00');
+    $dishe->setSlug($this->slugger->slug($dishe->getName())->lower());
+    $category = $this->getReference('plat');
+    $dishe->setCategory($category);
+    $menu = $this->getReference('L\'Nord din l\'assiette ');
+    $dishe->setMenu($menu);
+    $manager->persist($dishe);
+
+    $dishe = new Dishe();
+    $dishe->setName('Crème brûlée à la vanille de Madagascar');
+    $dishe->setDescription('une crème onctueuse et légèrement parfumée à la vanille, accompagnée d\'un biscuit croquant');
+    $dishe->setPrice('11.00');
+    $dishe->setSlug($this->slugger->slug($dishe->getName())->lower());
+    $category = $this->getReference('dessert');
+    $dishe->setCategory($category);
+    $menu = $this->getReference('L\'Nord din l\'assiette ');
+    $dishe->setMenu($menu);
+    $manager->persist($dishe);
+
+    $dishe = new Dishe();
+    $dishe->setName('Igp meditérannée brise marine');
+    $dishe->setDescription('L\'IGP Méditerranée Brise Marine est un vin rouge ou rosé produit dans la région méditerranéenne de la France. Ce vin est connu pour ses arômes frais et marins, rappelant l\'air salin de la mer. Il est souvent associé à des notes de fruits rouges ou de baies, avec une acidité équilibrée et une finale légèrement épicée. C\'est un vin rafraîchissant et facile à boire, parfait pour accompagner les fruits de mer ou les plats méditerranéens légers.');
+    $dishe->setPrice('18.00');
+    $dishe->setSlug($this->slugger->slug($dishe->getName())->lower());
+    $category = $this->getReference('vin');
+    $dishe->setCategory($category);
+    $menu = $this->getReference('L\'Nord din l\'assiette ');
+    $dishe->setMenu($menu);
+    $manager->persist($dishe);
+
 
 
 
@@ -268,4 +285,41 @@ class DisheFixtures extends Fixture implements DependentFixtureInterface
       MenuFixtures::class,
     ];
   }
+
+  public function CreateCategory(string $name, ObjectManager $manager)
+  {
+    $category = new Category();
+    $category->setName($name);
+    $this->addReference($name, $category);
+    $manager->persist($category);
+
+    return $category;
+  }
+
+  // private function createMenu(string $name, string $description, float $price, ObjectManager $manager)
+  // {
+  //   $menu = new Menu();
+  //   $menu->setName($name);
+  //   $menu->setSlug($this->slugger->slug($name)->lower());;
+  //   $menu->setDescription($description);
+  //   $menu->setPrice($price);
+  //   $this->addReference($name, $menu);
+  //   $manager->persist($menu);
+
+  //   return $menu;
+  // }
+
+  // private function CreateDishe(string $name, string $description, float $price, Category $category, Menu $menu, ObjectManager $manager)
+  // {
+  //   $dishe = new Dishe();
+  //   $dishe->setName($name);
+  //   $dishe->setDescription($description);
+  //   $dishe->setPrice($price);
+  //   $dishe->setSlug($this->slugger->slug($name)->lower());
+  //   $dishe->setCategory($category);
+  //   $dishe->setMenu($menu);
+  //   $manager->persist($dishe);
+
+  //   return $dishe;
+  // }
 }

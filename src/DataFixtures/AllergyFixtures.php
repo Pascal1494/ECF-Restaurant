@@ -13,36 +13,34 @@ class AllergyFixtures extends Fixture
   {
     // $product = new Product();
     // $manager->persist($product);
-
-    $arachides = new Allergy();
-    $arachides->setName('arachides');
-    $manager->persist($arachides);
-
-    $fruitsDeMer = new Allergy();
-    $fruitsDeMer->setName('fruits de mer');
-    $manager->persist($fruitsDeMer);
-
-    $produitsLaitiers = new Allergy();
-    $produitsLaitiers->setName('produits laitiers');
-    $manager->persist($produitsLaitiers);
-
-    $gluten = new Allergy();
-    $gluten->setName('gluten');
-    $manager->persist($gluten);
-
-    $oeufs = new Allergy();
-    $oeufs->setName('œufs');
-    $manager->persist($oeufs);
-
-    $noix  = new Allergy();
-    $noix->setName('noix');
-    $manager->persist($noix);
-
-    $soja = new Allergy();
-    $soja->setName('soja');
-    $manager->persist($soja);
+    
+    $allergy = $this->CreateAllergy('gluten', $manager);
+    $allergy = $this->CreateAllergy('arachides', $manager);
+    $allergy = $this->CreateAllergy('fruits de mer', $manager);
+    $allergy = $this->CreateAllergy('mollusques', $manager);
+    $allergy = $this->CreateAllergy('poisson', $manager);
+    $allergy = $this->CreateAllergy('produits laitiers', $manager);
+    $allergy = $this->CreateAllergy('gluten', $manager);
+    $allergy = $this->CreateAllergy('œufs', $manager);
+    $allergy = $this->CreateAllergy('fruits à coque', $manager);
+    $allergy = $this->CreateAllergy('noix', $manager);
+    $allergy = $this->CreateAllergy('soja', $manager);
+    $allergy = $this->CreateAllergy('moutarde', $manager);
+    $allergy = $this->CreateAllergy('céleri', $manager);
+    $allergy = $this->CreateAllergy('sulfites', $manager);
+    $allergy = $this->CreateAllergy('sésame', $manager);
+    $allergy = $this->CreateAllergy('lupin', $manager);
 
 
     $manager->flush();
+  }
+
+  public function CreateAllergy(string $name, ObjectManager $manager)
+  {
+    $allergy = new Allergy();
+    $allergy->setName($name);
+    $manager->persist($allergy);
+
+    return $allergy;
   }
 }

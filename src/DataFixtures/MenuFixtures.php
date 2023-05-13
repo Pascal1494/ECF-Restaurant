@@ -2,9 +2,7 @@
 
 namespace App\DataFixtures;
 
-use Faker\Factory;
-use App\Entity\Menu;
-use App\Entity\Allergy;
+
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\String\Slugger\SluggerInterface;
