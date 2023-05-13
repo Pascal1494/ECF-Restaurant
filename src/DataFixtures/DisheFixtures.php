@@ -2,13 +2,14 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Menu;
 use App\Entity\Dishe;
 use App\Entity\Category;
 use App\DataFixtures\MenuFixtures;
 use App\DataFixtures\CategoryFixtures;
-use App\Entity\Menu;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
@@ -35,41 +36,6 @@ class DisheFixtures extends Fixture implements DependentFixtureInterface
     $category = $this->CreateCategory('cocktail', $manager);
     $category = $this->CreateCategory('supplément', $manager);
 
-
-    // $category = new Category();
-    // $category->setName('entrée');
-    // $manager->persist($category);
-    // $this->addReference('entrée', $category);
-
-    // $category = new Category();
-    // $category->setName('plat');
-    // $manager->persist($category);
-    // $this->addReference('plat', $category);
-
-    // $category = new Category();
-    // $category->setName('dessert');
-    // $manager->persist($category);
-    // $this->addReference('dessert', $category);
-
-    // $category = new Category();
-    // $category->setName('fromage');
-    // $manager->persist($category);
-    // $this->addReference('fromage', $category);
-
-    // $category = new Category();
-    // $category->setName('bière');
-    // $manager->persist($category);
-    // $this->addReference('bière', $category);
-
-    // $category = new Category();
-    // $category->setName('vin');
-    // $manager->persist($category);
-    // $this->addReference('vin', $category);
-
-    
-    
-
-
     $menu = new Menu();
     $menu->setName('L\'klassik du ch\'ti');
     $menu->setSlug('l-klassik-du-ch-ti');
@@ -77,6 +43,8 @@ class DisheFixtures extends Fixture implements DependentFixtureInterface
     $menu->setPrice('18.40');
     $manager->persist($menu);
     $this->addReference('L\'klassik du ch\'ti', $menu);
+
+
 
     //entrées
     $dishe = new Dishe();

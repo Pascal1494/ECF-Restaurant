@@ -23,11 +23,21 @@
 			<p class="container-slogan">Bienvenue au Quai Anthique, restaurant snacking situé à Chambéry dans lequel vous re-découvrirez les meilleures spécialités du Nord Nous serons ravis de vous accueillir pour partager notre passion pour la cuisine du Nord dans une ambiance chaleureuse et toujours généreuse.</p>
 		</div>
 		<main id="main" class="main">
+
+			{% set defaultImages = ['default-images/TarteMaroilles.jpg', 'default-images/chicon.jpg', 'default-images/moules.jpg', 'default-images/soupe.jpg', ] %}
+
+			
 			{% for menu in menus %}
 				<div class="card">
 					<span class="badge">{{menu.price}}
 						€</span>
-					<img src="{{ asset('assets/images/menu/' ~ menu.image) }}" alt="{{ menu.name }}">
+					{% if menu.image is not null %}
+						<img src="{{ asset('assets/images/uploads/' ~ menu.image) }}" alt="{{ menu.name }}">
+					{% else %}
+						{% set defaultImageIndex = loop.index0 % 4 %}
+						<img src="{{ asset('assets/images/' ~ defaultImages[defaultImageIndex]) }}" alt="Image par défaut">
+					{% endif %}
+
 					<div class="text">
 						<h2>{{ menu.name }}</h2>
 						<p>{{ menu.description }}</p>

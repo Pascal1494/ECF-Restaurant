@@ -29,7 +29,7 @@ class Menu
     #[ORM\Column]
     private ?string $price = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $image = null;
 
     #[ORM\OneToMany(mappedBy: 'menu', targetEntity: Dishe::class)]
