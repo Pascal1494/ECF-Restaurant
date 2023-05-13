@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Trait\CreatedAtrait;
 use DateTimeImmutable;
 use Cocur\Slugify\Slugify;
 use Doctrine\DBAL\Types\Types;
@@ -11,6 +12,8 @@ use App\Repository\DisheRepository;
 #[ORM\Entity(repositoryClass: DisheRepository::class)]
 class Dishe
 {
+    use CreatedAtrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -31,9 +34,7 @@ class Dishe
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
-
+    
     #[ORM\ManyToOne(inversedBy: 'dishes')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
@@ -118,18 +119,7 @@ class Dishe
 
         return $this;
     }
-
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
+    
 
     public function getCategory(): ?Category
     {

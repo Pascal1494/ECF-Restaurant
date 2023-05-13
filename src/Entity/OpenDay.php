@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Trait\CreatedAtrait;
 use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,6 +11,8 @@ use App\Repository\OpenDayRepository;
 #[ORM\Entity(repositoryClass: OpenDayRepository::class)]
 class OpenDay
 {
+    use CreatedAtrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -36,15 +39,13 @@ class OpenDay
     #[ORM\Column(type: Types::TIME_MUTABLE)]
     private ?\DateTimeInterface $eveningClose = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
 
     public function __construct()
     {
         $this->createdAt = new DateTimeImmutable();
     }
 
-   
+
 
     public function getId(): ?int
     {
@@ -134,18 +135,4 @@ class OpenDay
 
         return $this;
     }
-
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    
 }
