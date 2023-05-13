@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Entity\Trait\CreatedAtrait;
+use App\Entity\Trait\CreatedAtTrait;
 use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -11,7 +11,7 @@ use App\Repository\OpenDayRepository;
 #[ORM\Entity(repositoryClass: OpenDayRepository::class)]
 class OpenDay
 {
-    use CreatedAtrait;
+    use CreatedAtTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]

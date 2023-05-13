@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Entity\Trait\CreatedAtrait;
+use App\Entity\Trait\CreatedAtTrait;
 use DateTimeImmutable;
 use Cocur\Slugify\Slugify;
 use Doctrine\DBAL\Types\Types;
@@ -12,7 +12,7 @@ use App\Repository\DisheRepository;
 #[ORM\Entity(repositoryClass: DisheRepository::class)]
 class Dishe
 {
-    use CreatedAtrait;
+    use CreatedAtTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]

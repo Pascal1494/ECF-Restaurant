@@ -2,14 +2,14 @@
 
 namespace App\Entity;
 
-use App\Entity\Trait\CreatedAtrait;
+use App\Entity\Trait\CreatedAtTrait;
 use App\Repository\AllergyRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AllergyRepository::class)]
 class Allergy
 {
-    use CreatedAtrait;
+    use CreatedAtTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]

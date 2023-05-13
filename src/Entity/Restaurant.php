@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Entity\Trait\CreatedAtrait;
+use App\Entity\Trait\CreatedAtTrait;
 use App\Repository\RestaurantRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: RestaurantRepository::class)]
 class Restaurant
 {
-    use CreatedAtrait;
+    use CreatedAtTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
