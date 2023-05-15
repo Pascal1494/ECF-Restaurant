@@ -3,26 +3,27 @@
 	{{ parent() }}
 {% endblock %}
 {% block body %}
+	{% include '_partials/_navbar.html.twig' %}
 	<div class="container">
 
 		<h2 class="h1-responsive font-weight-bold text-center my-4">Contactez-nous</h2>
 		<!--Section description-->
 		<p class="text-center w-responsive mx-auto mb-5">Vous avez des questions ? N'hésitez pas à nous contacter directement. Notre équipe reviendra vers vous dans
-																											les plus brefs délais pour vous renseigner.</p>
+																														les plus brefs délais pour vous renseigner.</p>
 		{# {{ form_start(form) }}
-																																		{{ form_widget(form) }} #}
+																																				{{ form_widget(form) }} #}
 
 		{# {{ form_start(form) }}
-																												{{ form_row(form.name) }}
-																												{{ form_row(form.email) }}
-																												{# {{ form_row(form.subject) }} #}
+																														{{ form_row(form.name) }}
+																														{{ form_row(form.email) }}
+																														{# {{ form_row(form.subject) }} #}
 		{# {{ form_row(form.message) }} #}
 		{# {{ form_end(form) }} #}
 
 
 		{# <button class="btn">{{ button_label|default('Envoyer') }}</button>
-																										
-																												{{ form_end(form) }} #}
+																												
+																														{{ form_end(form) }} #}
 		{{ form_start(form) }}
 		{{ form_widget(form) }}
 			<button class="btn btn-purple"> {{ button_label|default('envoyer') }}</button>
