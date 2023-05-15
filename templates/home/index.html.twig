@@ -14,7 +14,7 @@
 
 {% block body %}
 	{% include '_partials/_navbar.html.twig' %}
-	<section class="main-section" style="background-image: url('/assets/images/background-resto/resto.jpg');">
+	<section class="main-section" style="background-image: url('/assets/images/background-resto/resto.webp');">
 
 
 		<div class="center-title">
@@ -26,7 +26,7 @@
 
 			{% set defaultImages = ['default-images/TarteMaroilles.jpg', 'default-images/chicon.jpg', 'default-images/moules.jpg', 'default-images/soupe.jpg', ] %}
 
-			
+
 			{% for menu in menus %}
 				<div class="card">
 					<span class="badge">{{menu.price}}
