@@ -138,7 +138,7 @@ class DisheFixtures extends Fixture implements DependentFixtureInterface
     $menu = new Menu();
     $menu->setName('El mér et les marés');
     $menu->setSlug($this->slugger->slug($menu->getName())->lower());
-    $menu->setDescription('menu qui met à l\'honneur les produits de la mer et des marais de la région du Nord de la France. Moules frites, waterzoi de pouletet tarte aux sucre. Ce menu est idéal pour ceux qui aiment les produits de la mer et de la terre et qui souhaitent découvrir les saveurs authentiques de la région du Nord de la France.');
+    $menu->setDescription('menu qui met à l\'honneur les produits de la mer et des marais de la région du Nord de la France. Moules frites, waterzoi de poulet et tarte aux sucre. Ce menu est idéal pour ceux qui aiment les produits de la mer et de la terre et qui souhaitent découvrir les saveurs authentiques de la région du Nord de la France.');
     $menu->setPrice('36.50');
     $manager->persist($menu);
     $this->addReference('El mér et les marés', $menu);
