@@ -5,7 +5,6 @@ namespace App\Entity;
 use App\Repository\ReservationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ReservationRepository::class)]
@@ -22,11 +21,11 @@ class Reservation
     #[ORM\Column]
     private ?int $nbGuests = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date = null;
+    #[ORM\Column(type: "date")]
+    private $date = null;
 
-    #[ORM\Column(type: Types::TIME_IMMUTABLE)]
-    private ?\DateTimeImmutable $time = null;
+    #[ORM\Column(type: "time")]
+    private $time = null;
 
     #[ORM\ManyToMany(targetEntity: Allergy::class, inversedBy: 'reservations')]
     private Collection $allergy;
@@ -77,12 +76,12 @@ class Reservation
         return $this;
     }
 
-    public function getTime(): ?\DateTimeImmutable
+    public function getTime(): ?\DateTimeInterface
     {
         return $this->time;
     }
 
-    public function setTime(\DateTimeImmutable $time): self
+    public function setTime(\DateTimeInterface $time): self
     {
         $this->time = $time;
 

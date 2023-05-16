@@ -8,6 +8,7 @@ use App\Entity\Allergy;
 use App\Entity\OpenDay;
 use App\Entity\Category;
 use App\Entity\Restaurant;
+use App\Entity\Reservation;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -72,6 +73,9 @@ class DashboardController extends AbstractDashboardController
             ->setBadge('Ajouter');
 
         yield MenuItem::linkToCrud('les allergies', 'fa fa-hand-dots', Allergy::class)
+            ->setBadge('Ajouter');
+
+        yield MenuItem::linkToCrud('les réservations', 'fa fa-hand-dots', Reservation::class)
             ->setBadge('Ajouter');
     }
 }

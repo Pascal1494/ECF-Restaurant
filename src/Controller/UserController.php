@@ -18,22 +18,22 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 #[Route('/user')]
 class UserController extends AbstractController
 {
-    #[Route('/{slug}', name: 'app_user_index', methods: ['GET'])]
-    public function index(UrlGeneratorInterface $urlGenerator): Response
+    // #[Route('/{slug}', name: 'app_user_index', methods: ['GET'])]
+    // public function index(UrlGeneratorInterface $urlGenerator): Response
 
-    {
-        // Récupération de l'utilisateur connecté
-        $user = $this->getUser();
+    // {
+    //     // Récupération de l'utilisateur connecté
+    //     $user = $this->getUser();
 
-        // Génération de l'URL avec le slug de l'utilisateur connecté
-        $url = $urlGenerator->generate('app_user_index', [
-            'slug' => $user->getSlug()
-        ]);
+    //     // Génération de l'URL avec le slug de l'utilisateur connecté
+    //     // $url = $urlGenerator->generate('app_user_index', [
+    //     //     'slug' => $user->getSlug()
+    //     // ]);
 
 
-        // Redirection vers l'URL générée
-        return $this->redirect($url);
-    }
+    //     // Redirection vers l'URL générée
+    //     return $this->redirect($url);
+    // }
 
     // #[Route('/new', name: 'app_user_new', methods: ['GET', 'POST'])]
     // public function new(Request $request, UserRepository $userRepository): Response
