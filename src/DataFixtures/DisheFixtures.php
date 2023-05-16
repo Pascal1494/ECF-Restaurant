@@ -13,6 +13,9 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
+/**
+ * @Group("dev")
+ */
 class DisheFixtures extends Fixture implements DependentFixtureInterface
 {
 

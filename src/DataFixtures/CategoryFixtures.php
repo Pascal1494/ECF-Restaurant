@@ -8,6 +8,9 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Persistence\ObjectManager;
 
+/**
+ * @Group("dev")
+ */
 class CategoryFixtures extends Fixture
 {
   public function load(ObjectManager $manager): void

@@ -9,6 +9,9 @@ use App\Entity\OpenDay;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
+/**
+ * @Group("dev")
+ */
 class OpenDayFixtures extends Fixture
 {
   public function load(ObjectManager $manager): void

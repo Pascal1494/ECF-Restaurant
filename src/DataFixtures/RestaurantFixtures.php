@@ -6,6 +6,9 @@ use App\Entity\Restaurant;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
+/**
+ * @Group("dev")
+ */
 class RestaurantFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void

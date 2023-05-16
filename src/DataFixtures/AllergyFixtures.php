@@ -6,7 +6,9 @@ use App\Entity\Allergy;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
-
+/**
+ * @Group("dev")
+ */
 class AllergyFixtures extends Fixture
 {
   public function load(ObjectManager $manager): void
