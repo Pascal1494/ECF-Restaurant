@@ -54,21 +54,21 @@ class UserController extends AbstractController
     //     ]);
     // }
 
-    #[Route('/compte/{slug}', name: 'app_user_show', methods: ['GET'])]
-    public function show(UserRepository $userRepository, $slug): Response
+    // #[Route('/compte/{slug}', name: 'app_user_show', methods: ['GET'])]
+    // public function show(UserRepository $userRepository, $slug): Response
 
-    {
-        $user = $userRepository->findOneBy(['slug' => $slug]);
+    // {
+    //     $user = $userRepository->findOneBy(['slug' => $slug]);
 
-        // Vérifiez si l'utilisateur existe
-        if (!$user) {
-            throw $this->createNotFoundException('L\'utilisateur n\'existe pas.');
-        }
+    //     // Vérifiez si l'utilisateur existe
+    //     if (!$user) {
+    //         throw $this->createNotFoundException('L\'utilisateur n\'existe pas.');
+    //     }
 
-        return $this->render('user/show.html.twig', [
-            'user' => $user,
-        ]);
-    }
+    //     return $this->render('user/show.html.twig', [
+    //         'user' => $user,
+    //     ]);
+    // }
 
 
 
@@ -94,13 +94,13 @@ class UserController extends AbstractController
     //     ]);
     // }
 
-    #[Route('/compte/{slug}', name: 'app_user_delete', methods: ['POST'])]
-    public function delete(Request $request, User $user, UserRepository $userRepository): Response
-    {
-        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
-            $userRepository->remove($user, true);
-        }
+    // #[Route('/compte/{slug}', name: 'app_user_delete', methods: ['POST'])]
+    // public function delete(Request $request, User $user, UserRepository $userRepository): Response
+    // {
+    //     if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
+    //         $userRepository->remove($user, true);
+    //     }
 
-        return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
-    }
+    //     return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
+    // }
 }
