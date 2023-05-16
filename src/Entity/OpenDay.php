@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Entity\Trait\CreatedAtTrait;
 use DateTimeImmutable;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\OpenDayRepository;
@@ -39,10 +41,14 @@ class OpenDay
     #[ORM\Column(type: Types::TIME_MUTABLE)]
     private ?\DateTimeInterface $eveningClose = null;
 
+    #[ORM\OneToMany(mappedBy: 'openDay', targetEntity: Reservation::class)]
+    private Collection $reservations;
+
 
     public function __construct()
     {
         $this->createdAt = new DateTimeImmutable();
+        $this->reservations = new ArrayCollection();
     }
 
 
@@ -132,6 +138,36 @@ class OpenDay
     public function setEveningClose(\DateTimeInterface $eveningClose): self
     {
         $this->eveningClose = $eveningClose;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Reservation>
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(Reservation $reservation): self
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations->add($reservation);
+            $reservation->setOpenDay($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(Reservation $reservation): self
+    {
+        if ($this->reservations->removeElement($reservation)) {
+            // set the owning side to null (unless already changed)
+            if ($reservation->getOpenDay() === $this) {
+                $reservation->setOpenDay(null);
+            }
+        }
 
         return $this;
     }

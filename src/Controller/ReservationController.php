@@ -2,15 +2,11 @@
 
 namespace App\Controller;
 
-use DateTimeImmutable;
 use App\Entity\Reservation;
 use App\Form\ReservationType;
 use App\Service\OpenDayService;
-use App\Repository\AllergyRepository;
-use App\Repository\OpenDayRepository;
 use App\Repository\RestaurantRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use App\Repository\ReservationRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -28,10 +24,9 @@ class ReservationController extends AbstractController
 
 
     #[Route('/reservation', name: 'app_reservation')]
-    public function index(OpenDayService $openDayService,  Request $request): Response
+    public function index(OpenDayService $openDayService,  Request $request, RestaurantRepository $restaurantRepository): Response
     {
         $openDays = $openDayService->getAllOpenDays();
-
         $reservation = new Reservation();
         $form = $this->createForm(ReservationType::class, $reservation);
         $form->handleRequest($request);
@@ -40,6 +35,17 @@ class ReservationController extends AbstractController
         // dd($reservation);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // $restaurantName = $form->get('restaurant')->getData();
+            // if (!$restaurant) {
+            //     throw $this->createNotFoundException('Restaurant non trouvé');
+            // }
+            if ($reservation->getNbGuests() > 50) {
+                $this->addFlash('danger', 'Vous ne pouvez pas réserver, le restaurant est complet à cette date');
+                return $this->redirectToRoute('app_reservation');
+            }
+
+
+
             $this->entityManager->persist($reservation);
             $this->entityManager->flush();
 
@@ -47,9 +53,6 @@ class ReservationController extends AbstractController
 
             // return $this->redirectToRoute('app_home');
         }
-
-
-
 
         return $this->render('reservation/index.html.twig', [
             'days' => $openDays,

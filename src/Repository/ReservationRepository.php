@@ -42,17 +42,18 @@ class ReservationRepository extends ServiceEntityRepository
 //    /**
 //     * @return Reservation[] Returns an array of Reservation objects
 //     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('r')
-//            ->andWhere('r.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('r.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+   public function findByDateHour(\DateTimeInterface $date, \DateTimeInterface $hour): array
+   {
+       return $this->createQueryBuilder('r')
+       ->andWhere('r.date = :date')
+       ->andWhere('r.hour = :hour')
+       ->setParameter('date', $date)
+       ->setParameter('hour', $hour)
+       ->getQuery()
+       ->getResult()
+   ;
+       ;
+   }
 
 //    public function findOneBySomeField($value): ?Reservation
 //    {

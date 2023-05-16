@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Entity\Trait\CreatedAtTrait;
+use App\Entity\Trait\ToStringTrait;
 use App\Repository\AllergyRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -12,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Allergy
 {
     use CreatedAtTrait;
+    use ToStringTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -74,10 +76,5 @@ class Allergy
         }
 
         return $this;
-    }
-
-    public function __toString()
-    {
-        return $this->name;
     }
 }

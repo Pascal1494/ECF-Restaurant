@@ -30,6 +30,9 @@ class Reservation
     #[ORM\ManyToMany(targetEntity: Allergy::class, inversedBy: 'reservations')]
     private Collection $allergy;
 
+    #[ORM\ManyToOne(inversedBy: 'reservations')]
+    private ?OpenDay $openDay = null;
+
     public function __construct()
     {
         $this->allergy = new ArrayCollection();
@@ -108,6 +111,18 @@ class Reservation
     public function removeAllergy(Allergy $allergy): self
     {
         $this->allergy->removeElement($allergy);
+
+        return $this;
+    }
+
+    public function getOpenDay(): ?OpenDay
+    {
+        return $this->openDay;
+    }
+
+    public function setOpenDay(?OpenDay $openDay): self
+    {
+        $this->openDay = $openDay;
 
         return $this;
     }

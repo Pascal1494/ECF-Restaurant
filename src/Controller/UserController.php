@@ -72,27 +72,27 @@ class UserController extends AbstractController
 
 
 
-    #[Security("is_granted('ROLE_USER') and user === user")]
-    #[Route('/compte/{slug}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, User $user, UserRepository $userRepository): Response
-    {
-        // dd($user);
+    // #[Security("is_granted('ROLE_USER') and user === user")]
+    // #[Route('/compte/{slug}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
+    // public function edit(Request $request, User $user, UserRepository $userRepository): Response
+    // {
+    //     // dd($user);
 
-        $user = $this->getUser();
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
+    //     $user = $this->getUser();
+    //     $form = $this->createForm(UserType::class, $user);
+    //     $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $userRepository->save($user, true);
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $userRepository->save($user, true);
 
-            return $this->redirectToRoute('app_user_show', ['slug' => $user->getSlug()], Response::HTTP_SEE_OTHER);
-        }
+    //         return $this->redirectToRoute('app_user_show', ['slug' => $user->getSlug()], Response::HTTP_SEE_OTHER);
+    //     }
 
-        return $this->renderForm('user/edit.html.twig', [
-            'user' => $user,
-            'form' => $form,
-        ]);
-    }
+    //     return $this->renderForm('user/edit.html.twig', [
+    //         'user' => $user,
+    //         'form' => $form,
+    //     ]);
+    // }
 
     #[Route('/compte/{slug}', name: 'app_user_delete', methods: ['POST'])]
     public function delete(Request $request, User $user, UserRepository $userRepository): Response
