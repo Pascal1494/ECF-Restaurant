@@ -79,8 +79,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('les réservations', 'fa fa-hand-dots', Reservation::class)
             ->setBadge('Ajouter');
 
-        yield MenuItem::section('Le Staff', 'fa fa-cogs');
-        yield MenuItem::linkToCrud('Service web', 'fa fa-hand-dots', User::class)
-            ->setBadge('Ajouter');
+        // yield MenuItem::section('Le Staff', 'fa fa-cogs');
+        // yield MenuItem::linkToCrud('Service web', 'fa fa-hand-dots', User::class)
+        //     ->setBadge('Ajouter');
     }
 }

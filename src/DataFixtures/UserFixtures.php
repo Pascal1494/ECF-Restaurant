@@ -59,6 +59,17 @@ class UserFixtures extends Fixture
     $client2->setPseudo('Louloute');
     $client2->setSlug($this->slugger->slug($client2->getPseudo())->lower());
 
+    // Créer un autre client
+    $client4 = new User();
+    $client4->setEmail('guy.deduroutard@gmail.com');
+    // $client2->setRoles(['ROLE_USER']);
+    $client4->setPassword($this->passwordEncoder->hashPassword($admin, 'michelin'));
+    $client4->setIsVerified(false);
+    // $client2->setFirstname('Alain');
+    // $client2->setLastname('PROVISTE');
+    $client4->setPseudo('Louloute');
+    $client4->setSlug($this->slugger->slug($client2->getPseudo())->lower());
+
     // Créer un dernier client
     $client3 = new User();
     $client3->setEmail('Camille.onete@orange.fr');
@@ -75,6 +86,7 @@ class UserFixtures extends Fixture
     $manager->persist($client1);
     $manager->persist($client2);
     $manager->persist($client3);
+    $manager->persist($client4);
     $manager->persist($admin);
     $manager->flush();
   }
