@@ -9,6 +9,7 @@ use App\Entity\OpenDay;
 use App\Entity\Category;
 use App\Entity\Restaurant;
 use App\Entity\Reservation;
+use App\Entity\User;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -76,6 +77,10 @@ class DashboardController extends AbstractDashboardController
             ->setBadge('Ajouter');
 
         yield MenuItem::linkToCrud('les réservations', 'fa fa-hand-dots', Reservation::class)
+            ->setBadge('Ajouter');
+
+        yield MenuItem::section('Le Staff', 'fa fa-cogs');
+        yield MenuItem::linkToCrud('Service web', 'fa fa-hand-dots', User::class)
             ->setBadge('Ajouter');
     }
 }
