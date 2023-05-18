@@ -38,6 +38,9 @@ class Restaurant
     #[ORM\Column]
     private ?int $maxCapacity = null;
 
+    #[ORM\Column]
+    private ?int $restoCode = null;
+
 
     public function __construct()
     {
@@ -129,6 +132,18 @@ class Restaurant
     public function setMaxCapacity(int $maxCapacity): self
     {
         $this->maxCapacity = $maxCapacity;
+
+        return $this;
+    }
+
+    public function getRestoCode(): ?int
+    {
+        return $this->restoCode;
+    }
+
+    public function setRestoCode(int $restoCode): self
+    {
+        $this->restoCode = $restoCode;
 
         return $this;
     }

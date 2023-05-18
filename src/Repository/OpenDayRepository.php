@@ -63,4 +63,16 @@ class OpenDayRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+public function findByOpenDay($value): array
+   {
+       return $this->createQueryBuilder('o')
+           ->andWhere('o.exampleField = :val')
+           ->setParameter('val', $value)
+           ->orderBy('o.id', 'ASC')
+           ->setMaxResults(10)
+           ->getQuery()
+           ->getResult()
+       ;
+   }
 }

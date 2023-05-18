@@ -31,7 +31,10 @@ class ReservationType extends AbstractType
                 'widget' => 'single_text'
             ])
             ->add('time', TimeType::class, [
-                'widget' => 'single_text'
+                'input_format' => 'H:m',
+                'widget' => 'choice',
+                'hours' => ['11', '12', '13', '14', '19', '20', '21', '22'],
+                'minutes' => ['00', '15', '30', '45']
             ])
             // Si vous souhaitez gérer la relation ManyToOne avec l'entité Allergy,
             // vous pouvez utiliser la classe AllergyType et le champ EntityType ici.

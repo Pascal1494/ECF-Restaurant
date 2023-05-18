@@ -39,28 +39,47 @@ class RestaurantRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Restaurant[] Returns an array of Restaurant objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('r')
-//            ->andWhere('r.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('r.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    //    /**
+    //     * @return Restaurant[] Returns an array of Restaurant objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('r')
+    //            ->andWhere('r.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('r.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
 
-//    public function findOneBySomeField($value): ?Restaurant
-//    {
-//        return $this->createQueryBuilder('r')
-//            ->andWhere('r.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    //    public function findOneBySomeField($value): ?Restaurant
+    //    {
+    //        return $this->createQueryBuilder('r')
+    //            ->andWhere('r.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
+    public function findMaxCapacityByRestaurant($restaurantCode): ?int
+    {
+        $qb = $this->createQueryBuilder('r')
+            ->select('MAX(r.maxCapacity) as maxCapacity')
+            ->andWhere('r.restoCode = :code')
+            ->setParameter('code', $restaurantCode);
+
+        
+
+        $result = $qb->getQuery()->getOneOrNullResult();
+
+        if ($result !== null) {
+            return $result['maxCapacity'];
+        }
+
+        return null;
+    }
+
+    
 }
