@@ -35,15 +35,6 @@ class ReservationController extends AbstractController
         $form = $this->createForm(ReservationType::class, $reservation);
 
 
-
-
-        // $openDay = $entityManager->getRepository(OpenDay::class)->find($id);
-        // dd($openDay);
-
-        // $resto = $restaurantRepository->findAll();
-        // // dump($reservation);
-        // dd($resto);
-
         // On récupère les données du formulaire
         $form->handleRequest($request);
         $day = $reservation->getDate($reservation);
@@ -88,12 +79,6 @@ class ReservationController extends AbstractController
                 $this->entityManager->persist($reservation);
                 $this->entityManager->flush();
                 $this->addFlash('success', 'Votre réservation est effective');
-
-                // Réinitialiser l'objet Reservation
-                $reservation = new Reservation();
-
-                // Recréer le formulaire avec l'objet réinitialisé
-                $form = $this->createForm(ReservationType::class, $reservation);
             }
         }
 
