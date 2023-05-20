@@ -1,0 +1,23 @@
+.container {
+  margin-top: 6vh;
+}
+.col-md-12 {
+  background-image: url('../images/construct/en_construction.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.construction-text {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: rgb(76, 10, 10);
+}
+

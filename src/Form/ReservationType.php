@@ -36,8 +36,6 @@ class ReservationType extends AbstractType
                 'hours' => ['11', '12', '13', '14', '19', '20', '21', '22'],
                 'minutes' => ['00', '15', '30', '45']
             ])
-            // Si vous souhaitez gérer la relation ManyToOne avec l'entité Allergy,
-            // vous pouvez utiliser la classe AllergyType et le champ EntityType ici.
             ->add('allergy', EntityType::class, [
                 'class' => Allergy::class,
                 'choice_label' => 'name',

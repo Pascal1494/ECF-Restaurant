@@ -6,6 +6,7 @@ use App\Repository\ReservationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ReservationRepository::class)]
 class Reservation
@@ -18,10 +19,18 @@ class Reservation
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column]
+    #[ORM\Column(options: ["default" => 2])]
+    #[Assert\PositiveOrZero(message: "Le nombre d'invités ne peut pas être négatif.")]
+    #[Assert\Range(
+        min: 2,
+        max: 8,
+        notInRangeMessage: "Le nombre d'invités doit être compris entre 2 et 8!"
+    )]
     private ?int $nbGuests = null;
 
     #[ORM\Column(type: "date")]
+    #[Assert\GreaterThanOrEqual("today", message: "Vous tentez de réserver une date avant aujourd'hui ! ")]
+    #[Assert\LessThanOrEqual("+90 days", message: "Vous ne pouvez pas réserver au delà de 90 jours.")]
     private $date = null;
 
     #[ORM\Column(type: "time")]
