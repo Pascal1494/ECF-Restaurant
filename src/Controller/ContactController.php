@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\ContactType;
 use App\Service\MailerService;
+use App\Service\OpenDayService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,8 +15,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class ContactController extends AbstractController
 {
     #[Route('/contact', name: 'app_contact')]
-    public function index(Request $request, MailerService $mailer)
+    public function index(Request $request, MailerService $mailer, OpenDayService $openDayService)
     {
+
+        $openDays = $openDayService->getAllOpenDays();
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
 
@@ -29,7 +32,8 @@ class ContactController extends AbstractController
             return $this->redirectToRoute('app_contact_success');
         }
         return $this->render('contact/index.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'days' => $openDays,
         ]);
     }
 

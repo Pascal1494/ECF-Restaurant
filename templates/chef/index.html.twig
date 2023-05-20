@@ -4,20 +4,16 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="row-center">
-					<h1 class="construction-text">Site en construction</h1>
-					<p class="construction-text">Nous travaillons actuellement sur notre site web. Veuillez revenir plus tard.</p>
-				</div>
-			</div>
+	{% include '_partials/_navbar.html.twig' %}
+	<div class="block-construct">
+		<div class="image-construct">
+			<img src="{{asset('assets/images/construct/travaux.png')}}" alt="" srcset="">
 		</div>
 	</div>
-
-	<script>
-		setTimeout(function () {
-window.location.href = "{{ path('app_home') }}";
-}, 1300);
-	</script>
+	{% include '_partials/_footer.html.twig' %}
+	{# <script>
+											setTimeout(function () {
+									window.location.href = "{{ path('app_home') }}";
+									}, 1300);
+										</script> #}
 {% endblock %}
