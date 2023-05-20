@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryController!
+{% endblock %}
+
+{% block body %}
+	<h1>{{ category.name }}</h1>
+
+	{% for dish in dishes %}
+		<h2>{{ dish.name }}</h2>
+		<p>{{ dish.description }}</p>
+		<!-- Autres informations sur le plat -->
+	{% endfor %}
+{% endblock %}

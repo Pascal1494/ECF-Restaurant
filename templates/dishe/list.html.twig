@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	{% for dishes in dishesByCategory %}
+
+
+		{# <h2>{{ category.name }}</h2> #}
+		<ul>
+			{% for dish in dishes %}
+				<li>{{ dish.name }}
+					-
+					{{ dish.description }}
+					-
+					{{ dish.price }}
+					123</li>
+			{% endfor %}
+
+
+			{% for categoryData in dishesByCategory %}
+				<h2>{{ categoryData.category.name }}</h2>
+				<ul>
+					{% for dish in categoryData.dishes %}
+						<li>{{ dish.name }}</li>
+					{% endfor %}
+				</ul>
+			{% endfor %}
+		</ul>
+	{% endfor %}
+{% endblock %}

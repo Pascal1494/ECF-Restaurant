@@ -42,17 +42,46 @@ class DisheRepository extends ServiceEntityRepository
 
 
     public function getDishesByMenu(Menu $menu): array
-{
-    $dishes = $this->getEntityManager()
-        ->getRepository(Dishe::class)
-        ->createQueryBuilder('d')
-        ->where('d.menu = :menu')
-        ->setParameter('menu', $menu)
-        ->getQuery()
-        ->getResult();
+    {
+        $dishes = $this->getEntityManager()
+            ->getRepository(Dishe::class)
+            ->createQueryBuilder('d')
+            ->where('d.menu = :menu')
+            ->setParameter('menu', $menu)
+            ->getQuery()
+            ->getResult();
 
-    return $dishes;
-}
+        return $dishes;
+    }
+
+    public function findAllGroupedByCategory(): array
+    {
+        $query = $this->createQueryBuilder('d')
+            ->join('d.category', 'c')
+            ->addSelect('c')
+            ->orderBy('c.name', 'ASC')
+            ->getQuery();
+
+        $results = $query->getResult();
+
+        $dishesByCategory = [];
+        foreach ($results as $dish) {
+            $category = $dish->getCategory();
+
+            if (!isset($dishesByCategory[$category->getId()])) {
+                $dishesByCategory[$category->getId()] = [
+                    'category' => $category,
+                    'dishes' => [],
+                ];
+            }
+
+            $dishesByCategory[$category->getId()]['dishes'][] = $dish;
+        }
+
+        return array_values($dishesByCategory);
+    }
+
+
 
     //    /**
     //     * @return Dishe[] Returns an array of Dishe objects

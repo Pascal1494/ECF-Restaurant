@@ -1,3 +1,7 @@
+# # config/routes.yaml
+# imports:
+#     - { resource: routes/app_.yaml }
+
 index:
     path: /
     controller: App\Controller\DefaultController::index
@@ -5,3 +9,7 @@ index:
 app_reservation:
     path: /reservation
     controller: App\Controller\ReservationController::index
+
+dish_list:
+    path: /dishes
+    controller: App\Controller\DishController::list
