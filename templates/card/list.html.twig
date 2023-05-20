@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CardController!
+{% block title %}Détails de la catégorie :
+	{{ category.name }}
 {% endblock %}
 
 {% block body %}
@@ -8,11 +9,16 @@
 	<h1 class="card-section-title">Nos plats au détail</h1>
 	<div class="card-section-detals">
 		<div class="card-detals">
-			<h2>Carte</h2>
+			<h2>{{ category.name }}</h2>
 			<ul>
-				{% for cat in category %}
+				{% for dish in category.dishes %}
 					<li>
-						<a href="{{ path('app_card_slug', {'slug': cat.slug, 'menuId': cat.id}) }}">{{ cat.name }}</a>
+						<h3>{{ dish.name }}|
+							<span>{{dish.price}}
+								€</span>
+						</h3>
+						<p>{{dish.description}}</p>
+
 					</li>
 				{% endfor %}
 			</ul>
