@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscrivez-vous ! - {{ parent() }}
+{% block title %}Inscrivez-vous ! -
+	{{ parent() }}
 {% endblock %}
 
 {% block body %}
@@ -29,7 +30,7 @@
 				</div>
 				{{ form_row(registrationForm.agreeTerms, {label: 'Vous devez accepter les conditions !'}) }}
 				<div class="read-condition">
-					<a href="#">Lire les conditions
+					<a href="{{path('app_rgpd')}}">Lire les conditions
 					</a>
 				</div>
 
