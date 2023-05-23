@@ -17,3 +17,32 @@ Pour déployer le site en local, vous aurez besoin de suivre ces recommandations
 ### Clonage du projet
 1. Lancez VS Code et ouvrez un dossier. Si vous avez installé Laragon, vous pouvez ouvrir le dossier `www` à la racine de ce logiciel.
 2. Dans votre terminal VS Code, exécutez la commande suivante:
+   git clone https://github.com/Pascal1494/FakeResto.git
+3. Une fois le projet installé, vous devez vous positionner à la racine en exécutant la commande:
+   cd fakeresto
+4. Vous devrez maintenant installer toutes les dépendances en exécutant cette commande:
+   composer install
+5. Configurez votre base de données en modifiant les paramètres dans le fichier `.env`:
+   DATABASE_URL=mysql://utilisateur:mot_de_passe@127.0.0.1:3306/nom_de_la_base_de_données
+6. Créez la base de données en exécutant la commande suivante:
+   php bin/console doctrine:database:create
+7. Créez les tables grâce aux migrations:
+   php bin/console doctrine:migrations:migrate
+8. Générez les fixtures
+     php bin/console doctrine:fixtures:load
+9.Lancez votre serveur local:
+symfony serve -d (le -d vous permet de reprendre la main sur le terminal
+
+Vous avez un exemplaire du site en local. BRAVO !
+
+
+
+
+
+
+
+
+
+
+
+
