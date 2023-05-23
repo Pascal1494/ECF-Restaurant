@@ -9,7 +9,7 @@
   --text-stagger: 0.015s;
   --text-ease: cubic-bezier(0.38, 0.26, 0.05, 1.07);
   --title-stagger: 0.05s;
-  --highlight: -webkit-linear-gradient(130deg, rgba(255,255,255,1), rgba(255,127,80,1));
+  --highlight: -webkit-linear-gradient(130deg, #ffffff, #ff7f50);
 }
 
 .navbar-brand {
@@ -45,7 +45,7 @@
 }
 
 .dropdown-menu {
-  border: 3px solid pink;
+  border: 3px solid #ffc0cb;
   /* margin-left: -180px !important; */
   }
   .dropdown-toggle img{
@@ -67,7 +67,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.141); 
+  background-color: #00000024; 
 }
 
 .center-title {
@@ -189,7 +189,7 @@
   transform: scale(1.1);
 }
 .card:nth-of-type(1) {
-  --highlight: rgb(195, 64, 16);
+  --highlight: #c34010;
 }
 
 .text {
@@ -204,14 +204,17 @@ h2 {
   font-size: clamp(20px, 4vw, 40px);
   font-weight: 800;
   margin-bottom: 0.2em;
+  font-family: 'Baloo Bhaina 2', cursive;
 }
 p {
-  font-size: 12px;
+  font-size: 3.5rem;
   font-size: clamp(10px, 1.25vw, 14px);
   line-height: 1.4;
   text-align: justify;
   margin-top: 0.2em;
   margin-bottom: 0;
+  font-family: 'Baloo Bhaina 2', cursive;
+  
 }
 .badge {
   position: absolute;

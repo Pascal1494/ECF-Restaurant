@@ -15,7 +15,7 @@ color: #ffff00 !important;
 .logo-custom{
   text-transform: uppercase;
   text-align: center;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
   font-size: 1.3rem;
   border: 1px solid #ffff00;
   border-radius: 5px;
